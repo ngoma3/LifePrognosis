@@ -1,0 +1,3 @@
+ngoma,chris,ngomachrs@gmail.com,/an+nUxfbd7OmijXaXL4Hw/BNLSAIefPJIa7KQyMuhY=,fypzM3pbd0zX/do5e5aSUw==,PATIENT
+ngoma,chris,ngoma@gmail.com,/an+nUxfbd7OmijXaXL4Hw/BNLSAIefPJIa7KQyMuhY=,fypzM3pbd0zX/do5e5aSUw==,ADMIN
+hey,there,cngoma@gmail.com,Sk2D1YTlhuf7T08Bk6edIkkSWxXHQQQDK+8LkixBRsQ=,t2vDOgMeuS3RnSATHcIglQ==,PATIENT
