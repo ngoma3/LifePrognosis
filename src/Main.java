@@ -6,15 +6,34 @@ import java.io.IOException;
 
 public class Main {
     private static UserManagement userManagement = UserManagement.getInstance();
-    private static User currentUser;  // To keep track of the logged-in user
+    private static User currentUser;  
 
     public static void main(String[] args) {
-        // Initialize UserManagement and load users
+  
         userManagement.loadUsers();
+        try {
+            // Path to the Bash script
+            String scriptPath = "bash/create_first_admin.sh";
+            ProcessBuilder processBuilder = new ProcessBuilder("bash", scriptPath);
+            processBuilder.redirectErrorStream(true);
+            
+            Process process = processBuilder.start();
+            
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    System.out.println(line);
+                }
+            }
+            
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        // Main menu loop
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
+                clearScreen();
                 System.out.println("Welcome to the System");
                 System.out.println("1. Login");
                 System.out.println("2. Register");
@@ -39,7 +58,18 @@ public class Main {
             e.printStackTrace();
         }
     }
-
+    private static void clearScreen() {
+        String os = System.getProperty("os.name").toLowerCase();
+        try {
+            if (os.contains("win")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("bash", "-c", "clear").inheritIO().start().waitFor();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
     private static void login(BufferedReader reader) throws IOException {
         System.out.print("Enter email: ");
         String email = reader.readLine();
@@ -64,33 +94,41 @@ public class Main {
     private static void register(BufferedReader reader) throws IOException {
         System.out.print("Enter your email: ");
         String email = reader.readLine();
-
+    
         // Check if email is in the onboarding list
         List<String> onboardingList = FileUtil.readLines("data/onboarding-list.txt");
         if (onboardingList.contains(email)) {
-            System.out.println("You have already requested registration. Please wait for approval.");
-            return;
+            System.out.println("Your email is found in the onboarding list. Please complete your registration.");
+    
+            // Collect additional user details
+            System.out.print("Enter your first name: ");
+            String firstName = reader.readLine();
+            System.out.print("Enter your last name: ");
+            String lastName = reader.readLine();
+            System.out.print("Enter your password: ");
+            String password = reader.readLine();
+    
+            // Hash the password
+            String salt = PasswordUtil.getSalt();
+            String hashedPassword = PasswordUtil.hashPassword(password, salt);
+    
+            // Create a new Patient instance
+            Patient newPatient = new Patient(firstName, lastName, email, hashedPassword, salt, null, false, null, false, null, null);
+            
+            // Add the new patient to the user management
+            userManagement.addUser(newPatient);
+    
+            // Inform the user about successful registration
+            System.out.println("Registration successful! You can now log in.");
+        } else {
+            System.out.println("Your email is not found in the onboarding list. Please register your email first.");
         }
-
-        System.out.print("Enter your first name: ");
-        String firstName = reader.readLine();
-        System.out.print("Enter your last name: ");
-        String lastName = reader.readLine();
-        System.out.print("Enter your password: ");
-        String password = reader.readLine();
-
-        String salt = PasswordUtil.getSalt();
-        String hashedPassword = PasswordUtil.hashPassword(password, salt);
-
-        // Create new Patient and add to the system
-        Patient newPatient = new Patient(firstName, lastName, email, hashedPassword, salt, null, false, null, false, null, null);
-        userManagement.addUser(newPatient);
-
-        System.out.println("Registration successful! You can now log in.");
     }
+    
 
     private static void adminMenu(BufferedReader reader) throws IOException {
         while (true) {
+            clearScreen();
             System.out.println("Admin Dashboard");
             System.out.println("1. Add Admin");
             System.out.println("2. Initiate Patient Registration");
@@ -169,6 +207,7 @@ public class Main {
 
     private static void patientMenu(BufferedReader reader) throws IOException {
         while (true) {
+            clearScreen();
             System.out.println("Patient Dashboard");
             System.out.println("1. View Profile");
             System.out.println("2. Edit Profile");
