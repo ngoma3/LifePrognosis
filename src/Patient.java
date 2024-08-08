@@ -1,4 +1,6 @@
+import java.util.UUID;
 import java.time.LocalDate;
+
 
 public class Patient extends User {
     private LocalDate birthDate;
@@ -8,10 +10,11 @@ public class Patient extends User {
     private LocalDate vaccinationDate;
     private String country;
 
-    public Patient(String firstName, String lastName, String email, String password, String salt,
+    // Constructor with UUID
+    public Patient(String firstName, String lastName, String email, String password, String salt, String uuid,
                    LocalDate birthDate, boolean hasChronicDisease, LocalDate chronicDiseaseStartDate,
                    boolean vaccinated, LocalDate vaccinationDate, String country) {
-        super(firstName, lastName, email, password, UserRole.PATIENT, salt);
+        super(firstName, lastName, email, password, UserRole.PATIENT, salt, uuid);
         this.birthDate = birthDate;
         this.hasChronicDisease = hasChronicDisease;
         this.chronicDiseaseStartDate = chronicDiseaseStartDate;
@@ -20,6 +23,15 @@ public class Patient extends User {
         this.country = country;
     }
 
+    // Constructor without UUID, generates one
+    public Patient(String firstName, String lastName, String email, String password, String salt,
+                   LocalDate birthDate, boolean hasChronicDisease, LocalDate chronicDiseaseStartDate,
+                   boolean vaccinated, LocalDate vaccinationDate, String country) {
+        this(firstName, lastName, email, password, salt, UUID.randomUUID().toString(),
+             birthDate, hasChronicDisease, chronicDiseaseStartDate, vaccinated, vaccinationDate, country);
+    }
+
+    // Getters and Setters
     public LocalDate getBirthDate() {
         return birthDate;
     }

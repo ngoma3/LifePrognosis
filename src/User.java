@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 public abstract class User {
     protected String firstName;
     protected String lastName;
@@ -5,16 +7,20 @@ public abstract class User {
     protected String password;
     protected UserRole role;
     protected String salt;
+    private String uuid;
 
-    public User(String firstName, String lastName, String email, String password, UserRole role, String salt) {
+    // Constructor
+    public User(String firstName, String lastName, String email, String password, UserRole role, String salt, String uuid) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.role = role;
         this.salt = salt;
+        this.uuid = (uuid == null || uuid.isEmpty()) ? UUID.randomUUID().toString() : uuid;
     }
 
+    // Getters and Setters
     public String getFirstName() {
         return firstName;
     }
@@ -61,5 +67,13 @@ public abstract class User {
 
     public void setSalt(String salt) {
         this.salt = salt;
+    }
+    
+    public String getUuid() {
+        return uuid;
+    }
+    
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 }
