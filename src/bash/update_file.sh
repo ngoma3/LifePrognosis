@@ -1,7 +1,13 @@
 #!/bin/bash
 
-FILE=$1
-OLD_LINE=$2
-NEW_LINE=$3
+# Get the file path and lines from arguments
+FILE_PATH=$1
+shift  # Remove the first argument (file path) from the list
 
-sed -i "s|$OLD_LINE|$NEW_LINE|" $FILE
+# Truncate the file (clears the content)
+> "$FILE_PATH"
+
+# Write each line to the file
+for LINE in "$@"; do
+    echo "$LINE" >> "$FILE_PATH"
+done

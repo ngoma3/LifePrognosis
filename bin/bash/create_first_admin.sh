@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # File paths
-USER_STORE="src/resources/user-store.txt"
+USER_STORE="data/user-store.txt"
 
 # Admin details
 FIRST_NAME="Super"

@@ -1,3 +1,3 @@
-ngoma,chris,ngomachrs@gmail.com,/an+nUxfbd7OmijXaXL4Hw/BNLSAIefPJIa7KQyMuhY=,fypzM3pbd0zX/do5e5aSUw==,PATIENT
-ngoma,chris,ngoma@gmail.com,/an+nUxfbd7OmijXaXL4Hw/BNLSAIefPJIa7KQyMuhY=,fypzM3pbd0zX/do5e5aSUw==,ADMIN
-hey,there,cngoma@gmail.com,Sk2D1YTlhuf7T08Bk6edIkkSWxXHQQQDK+8LkixBRsQ=,t2vDOgMeuS3RnSATHcIglQ==,PATIENT
+7d4a27d7-e801-4f1e-801f-73bc148c30c8,Super,Admin,admin@gmail.com,eupgmuAOvZ/Q1BEyhLL/1MIde5fFeNbgy95kmtqDaIY=,mpy+rd+zS+/C/do+PyAcRg==,ADMIN
+6ab03e5f-2be4-4df1-b55c-8ba92e4dddbd,ngoma,chris,123,cbfpc8/UYJJpDuJUbZI9kStfVXth0v5K81iSZNtZ8ps=,JrfXkx6vnI2SLD07M3ZcJQ==,ADMIN
+629df614-00a6-49f4-ae60-45ff39a6e063,ngoma,chris,cngoma@gmail.com,98GVkjNr5l4wGUKcaV88Tz8Jf/nKCXaYLJrXDIT5OWo=,mD+nwrMR3SZSejlxqrg9mw==,PATIENT
