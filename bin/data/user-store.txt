@@ -1,3 +1,8 @@
-ngoma,chris,ngomachrs@gmail.com,/an+nUxfbd7OmijXaXL4Hw/BNLSAIefPJIa7KQyMuhY=,fypzM3pbd0zX/do5e5aSUw==,PATIENT
-ngoma,chris,ngoma@gmail.com,/an+nUxfbd7OmijXaXL4Hw/BNLSAIefPJIa7KQyMuhY=,fypzM3pbd0zX/do5e5aSUw==,ADMIN
-hey,there,cngoma@gmail.com,Sk2D1YTlhuf7T08Bk6edIkkSWxXHQQQDK+8LkixBRsQ=,t2vDOgMeuS3RnSATHcIglQ==,PATIENT
+7d4a27d7-e801-4f1e-801f-73bc148c30c8,Super,Admin,admin@gmail.com,eupgmuAOvZ/Q1BEyhLL/1MIde5fFeNbgy95kmtqDaIY=,mpy+rd+zS+/C/do+PyAcRg==,ADMIN
+629df614-00a6-49f4-ae60-45ff39a6e063,cngoma@gmail.com,ngoma,chris,98GVkjNr5l4wGUKcaV88Tz8Jf/nKCXaYLJrXDIT5OWo=,mD+nwrMR3SZSejlxqrg9mw==,PATIENT
+f90920a1-f73f-4c5c-bbed-563cb1a8d578,rachel@gmail.com,rachel,ton,98BA/c4tNXCY0xrEzzpk+oDTlFvU1mJ/ziGrlIbW4qU=,bBt5ZbCcFyVWUyGF5cle6w==,PATIENT
+ce05e147-5820-375e-a63b-dfa10bcf4203,ngoma2@gmail.com,ngoma,chris,vAjYZYmboYCqNplyIWjx/kRqZR9RITom2qE4Df3T3LM=,GyY1xNhyp9N5p0dPWx5Q3w==,PATIENT
+6ace913c-6aec-3eae-b4d3-31d7590ef997,ngoma3@gmail.com,ngoma,chris,ZCbgqF6O8rk5tkH7SiIiNZ0tEjiVh5Wrls0jXfJdd8Q=,3ippJCpp3UArhei1bHAy1w==,PATIENT
+6b422ef4-e091-3f3e-938a-35d9d7a0b710,ngoma4@gmail.com
+7df8b6e0-b463-4928-b594-a797ed495431,ngoma5@gmail.com,ngoma,chris,9+1N4tfL+FVBB3IDJvNZmwCjQk1ewOWM5mOn7jCNs4k=,IPZotfsKEyqVNVIau8NZRQ==,ADMIN
+c6c9f24f-a9f8-33c9-a44e-a150f8ccd843,ngoma6@gmail.com

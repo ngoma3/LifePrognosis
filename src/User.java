@@ -1,4 +1,6 @@
 import java.util.UUID;
+import java.io.BufferedReader;
+import java.io.IOException;
 
 public abstract class User {
     protected String firstName;
@@ -76,4 +78,7 @@ public abstract class User {
     public void setUuid(String uuid) {
         this.uuid = uuid;
     }
+
+    // Abstract method to view the dashboard
+    public abstract void viewDashboard(BufferedReader reader) throws IOException;
 }
