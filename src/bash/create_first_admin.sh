@@ -17,9 +17,9 @@ SALT="$5"
 
 # Check if the first admin already exists
 if grep -q "$EMAIL" "$USER_STORE"; then
-  echo "First admin already exists."
+  echo ""
 else
   # Append the first admin to the user-store file  
-  echo "$UUID,$FIRST_NAME,$LAST_NAME,$EMAIL,$HASHED_PASSWORD,$SALT,$ROLE" >> "$USER_STORE"
+  echo "$UUID,$EMAIL,$FIRST_NAME,$LAST_NAME,$HASHED_PASSWORD,$SALT,$ROLE" >> "$USER_STORE"
   echo "First admin created successfully."
 fi

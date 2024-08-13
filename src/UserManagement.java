@@ -23,24 +23,37 @@ public class UserManagement {
         List<String> userLines = FileUtil.readLines("data/user-store.txt");
         
         for (String line : userLines) {
-            String[] parts = line.split(",");
-            String uuid = parts[0];
-            String firstName = parts[1];
-            String lastName = parts[2];
-            String email = parts[3];
-            String password = parts[4];
-            String salt = parts[5];
-            UserRole role = UserRole.valueOf(parts[6]);
+            try {
+                String[] parts = line.split(",");
     
-            User user = null;
-            if (role == UserRole.ADMIN) {
-                user = new Admin(firstName, lastName, email, password, salt, uuid);
-            } else if (role == UserRole.PATIENT) {
-                user = new Patient(firstName, lastName, email, password, salt, uuid, null, false, null, false, null, null);
-            }
+                // Validate the number of parts
+                if (parts.length != 7) {
+                    System.err.println("Invalid user data format: " + line);
+                    continue;
+                }
     
-            if (user != null) {
-                userMap.put(uuid, user);
+                String uuid = parts[0].trim();
+                String email = parts[1].trim();
+                String firstName = parts[2].trim();
+                String lastName = parts[3].trim();
+                String password = parts[4].trim();
+                String salt = parts[5].trim();
+                UserRole role = UserRole.valueOf(parts[6].trim());
+    
+                User user = null;
+                if (role == UserRole.ADMIN) {
+                    user = new Admin(firstName, lastName, email, password, salt, uuid);
+                } else if (role == UserRole.PATIENT) {
+                    user = new Patient(firstName, lastName, email, password, salt, uuid, null, false, null, false, null, null);
+                }
+    
+                if (user != null) {
+                    userMap.put(uuid, user);
+                }
+    
+            } catch (Exception e) {
+                System.err.println("Error processing line: " + line);
+                e.printStackTrace(); // Optional: to get detailed error information
             }
         }
     
@@ -48,35 +61,50 @@ public class UserManagement {
         List<String> healthLines = FileUtil.readLines("data/health-data.txt");
     
         for (String line : healthLines) {
-            String[] parts = line.split(",");
-            String uuid = parts[0]; // UUID must be the first column
-            String birthDateStr = parts[1];
-            boolean hasChronicDisease = Boolean.parseBoolean(parts[2]);
-            String chronicDiseaseStartDateStr = parts[3];
-            boolean vaccinated = Boolean.parseBoolean(parts[4]);
-            String vaccinationDateStr = parts[5];
-            String country = parts[6];
-
-            User user = userMap.get(uuid);
-            if (user instanceof Patient) {
-                Patient patient = (Patient) user;
+            try {
+                String[] parts = line.split(",");
                 
-                // Convert strings to LocalDate, handle possible parsing exceptions
-                LocalDate birthDate = parseLocalDate(birthDateStr);
-                LocalDate chronicDiseaseStartDate = parseLocalDate(chronicDiseaseStartDateStr);
-                LocalDate vaccinationDate = parseLocalDate(vaccinationDateStr);
-                patient.setBirthDate(birthDate);
-                patient.setHasChronicDisease(hasChronicDisease);
-                patient.setChronicDiseaseStartDate(chronicDiseaseStartDate);
-                patient.setVaccinated(vaccinated);
-                patient.setVaccinationDate(vaccinationDate);
-                patient.setCountry(country);
+                // Validate the number of parts for health data
+                if (parts.length != 7) {
+                    System.err.println("Invalid health data format: " + line);
+                    continue;
+                }
+    
+                String uuid = parts[0].trim(); // UUID must be the first column
+                String birthDateStr = parts[1].trim();
+                boolean hasChronicDisease = Boolean.parseBoolean(parts[2].trim());
+                String chronicDiseaseStartDateStr = parts[3].trim();
+                boolean vaccinated = Boolean.parseBoolean(parts[4].trim());
+                String vaccinationDateStr = parts[5].trim();
+                String country = parts[6].trim();
+    
+                User user = userMap.get(uuid);
+                if (user instanceof Patient) {
+                    Patient patient = (Patient) user;
+    
+                    // Convert strings to LocalDate, handle possible parsing exceptions
+                    LocalDate birthDate = parseLocalDate(birthDateStr);
+                    LocalDate chronicDiseaseStartDate = parseLocalDate(chronicDiseaseStartDateStr);
+                    LocalDate vaccinationDate = parseLocalDate(vaccinationDateStr);
+                    
+                    patient.setBirthDate(birthDate);
+                    patient.setHasChronicDisease(hasChronicDisease);
+                    patient.setChronicDiseaseStartDate(chronicDiseaseStartDate);
+                    patient.setVaccinated(vaccinated);
+                    patient.setVaccinationDate(vaccinationDate);
+                    patient.setCountry(country);
+                }
+    
+            } catch (Exception e) {
+                System.err.println("Error processing health data line: " + line);
+                e.printStackTrace(); // Optional: to get detailed error information
             }
         }
     
         // Add users to the list
         users.addAll(userMap.values());
     }
+    
     private LocalDate parseLocalDate(String dateStr) {
         try {
             return dateStr != null && !dateStr.isEmpty() ? LocalDate.parse(dateStr) : null;
@@ -92,7 +120,7 @@ public class UserManagement {
 
     public void addUser(User user) {
         users.add(user);
-        String userString = String.join(",",user.getUuid(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getPassword(), user.getSalt(), user.getRole().toString());
+        String userString = String.join(",",user.getUuid(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getPassword(), user.getSalt(), user.getRole().toString());
         FileUtil.appendLine("data/user-store.txt", userString);
     }
 

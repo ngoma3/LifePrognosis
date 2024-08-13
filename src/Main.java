@@ -4,12 +4,24 @@ import java.time.LocalDate;
 import java.util.List;
 import java.io.IOException;
 import java.util.UUID;
+import java.io.Console;
 
 public class Main {
     private static UserManagement userManagement = UserManagement.getInstance();
     private static User currentUser;  
+    public static final String RESET = "\033[0m";
 
-    public static void main(String[] args) {
+    // ANSI escape codes for background colors
+    public static final String BLACK_BACKGROUND = "\033[40m";
+    public static final String RED_BACKGROUND = "\033[41m";
+    public static final String GREEN_BACKGROUND = "\033[42m";
+    public static final String YELLOW_BACKGROUND = "\033[43m";
+    public static final String BLUE_BACKGROUND = "\033[44m";
+    public static final String PURPLE_BACKGROUND = "\033[45m";
+    public static final String CYAN_BACKGROUND = "\033[46m";
+    public static final String WHITE_BACKGROUND = "\033[47m";
+
+    public static void main(String[] args) throws InterruptedException{
   
         userManagement.loadUsers();
         try {
@@ -44,11 +56,64 @@ public class Main {
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+        // String text = "This text is centered!";
+        // String asciiArt = 
+        //     "  #####  \n" +
+        //     " #     # \n" +
+        //     " #       \n" +
+        //     " #  #### \n" +
+        //     " #     # \n" +
+        //     " #     # \n" +
+        //     "  #####  ";
+
+        // Determine terminal width
+        // int terminalWidth = getTerminalWidth();
+        
+        // Print centered text
+        // printCenteredText(text, terminalWidth);
+        
+        // Print centered ASCII art
+        // printCenteredText(asciiArt, terminalWidth);
+        // System.out.println(BLUE_BACKGROUND + "This text has a blue background!" + RESET);
+        // System.out.println(RED_BACKGROUND + "This text has a red background!" + RESET);
+        // System.out.println(GREEN_BACKGROUND + "This text has a green background!" + RESET);
+        // System.out.println("\033[1mThis text will be bold.\033[0m"+ terminalWidth);
+        // // Reset back to the default background color
+        // System.out.println("This text has the default background color.");
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
+            String message = "Welcome to the Lifespan Estimation Tool...";
+    for (char c : message.toCharArray()) {
+        System.out.print(c);
+        Thread.sleep(100); // Adjust speed of typing
+    }
+    System.out.println();
+    // System.out.print("Loading: ");
+    // for (int i = 0; i <= 20; i++) {
+    //     System.out.print("[");
+    //     for (int j = 0; j < 20; j++) {
+    //         if (j < i) {
+    //             System.out.print("#");
+    //         } else {
+    //             System.out.print(" ");
+    //         }
+    //     }
+    //     System.out.print("] " + (i * 5) + "%");
+    //     Thread.sleep(100); // Adjust speed of animation
+    //     if (i < 20) {
+    //         System.out.print("\r"); // Move cursor back to start of line
+    //     }
+    // }
+    // System.out.println("\nLoading Complete!");
+    // String[] spinner = {"|", "/", "-", "\\"};
+    // for (int i = 0; i < 20; i++) {
+    //     System.out.print("\rCalculating... " + spinner[i % spinner.length]);
+    //     Thread.sleep(200); // Adjust speed of animation
+    // }
+    // System.out.println("\rCalculation Complete!    ");
             while (true) {
                 // clearScreen();
-                System.out.println("Welcome to the System");
+                System.out.println("Welcome to the Life Prognosis System");
                 System.out.println("1. Login");
                 System.out.println("2. Register");
                 System.out.println("3. Exit");
@@ -71,6 +136,31 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public static int getTerminalWidth() {
+        Console console = System.console();
+        if (console != null) {
+            // Get terminal size using ANSI escape code
+            System.out.println("Invalid option. Please try again."+console.readLine("\033[6n"));
+            return Integer.parseInt(console.readLine("\033[6n")) - 1;
+        } else {
+            // Default width (fallback)
+            System.out.println("Invalid option. ");
+            return 80;
+        }
+    }
+
+    public static void printCenteredText(String text, int terminalWidth) {
+        String[] lines = text.split("\n");
+        for (String line : lines) {
+            int padding = (terminalWidth - line.length()) / 2;
+            System.out.printf("%" + padding + "s%s%n", "", line);
+        }
+    }
+    public static String generateUUIDFromEmail(String email) {
+        // Generate UUID based on the email's byte array
+        UUID uuid = UUID.nameUUIDFromBytes(email.getBytes());
+        return uuid.toString();
     }
     private static void clearScreen() {
         String os = System.getProperty("os.name").toLowerCase();
@@ -107,38 +197,121 @@ public class Main {
     }
 
     private static void register(BufferedReader reader) throws IOException {
-        System.out.print("Enter your email: ");
-        String email = reader.readLine();
+        while (true) {
+            clearTerminal();
     
-        // Check if email is in the onboarding list
-        List<String> onboardingList = FileUtil.readLines("data/onboarding-list.txt");
-        if (onboardingList.contains(email)) {
-            System.out.println("Your email is found in the onboarding list. Please complete your registration.");
+            System.out.println("===== Registration Menu =====");
+            System.out.println("1. Finalize Registration");
+            System.out.println("2. Registration Request");
+            System.out.println("3. Exit");
+            System.out.println("==============================");
+            System.out.print("Choose an option: ");
+            String option = reader.readLine();
     
-            // Collect additional user details
-            System.out.print("Enter your first name: ");
-            String firstName = reader.readLine();
-            System.out.print("Enter your last name: ");
-            String lastName = reader.readLine();
-            System.out.print("Enter your password: ");
-            String password = reader.readLine();
+            switch (option) {
+                case "1":
+                    clearTerminal();
+                    System.out.println("===== Finalize Registration =====");
+                    System.out.print("Enter your email: ");
+                    String email = reader.readLine();
+                    System.out.print("Enter your UUID: ");
+                    String uuid = reader.readLine();
     
-            // Hash the password
-            String salt = PasswordUtil.getSalt();
-            String hashedPassword = PasswordUtil.hashPassword(password, salt);
+                    // Check if the email and UUID exist together in user-store
+                    boolean emailAndUuidExist = FileUtil.checkEmailAndUuidExist("data/user-store.txt", email, uuid);
     
-            // Create a new Patient instance
-            Patient newPatient = new Patient(firstName, lastName, email, hashedPassword, salt, null, false, null, false, null, null);
-            
-            // Add the new patient to the user management
-            userManagement.addUser(newPatient);
+                    if (emailAndUuidExist) {
+                        System.out.print("Enter your first name: ");
+                        String firstName = reader.readLine();
+                        System.out.print("Enter your last name: ");
+                        String lastName = reader.readLine();
+                        System.out.print("Enter your password: ");
+                        String password = reader.readLine();
     
-            // Inform the user about successful registration
-            System.out.println("Registration successful! You can now log in.");
-        } else {
-            System.out.println("Your email is not found in the onboarding list. Please register your email first.");
+                        // Hash the password
+                        String salt = PasswordUtil.getSalt();
+                        String role = "PATIENT";
+                        String hashedPassword = PasswordUtil.hashPassword(password, salt);
+    
+                        // Create a new Patient instance
+                        Patient newPatient = new Patient(firstName, lastName, email, hashedPassword, salt, uuid, null, false, null, false, null, null);
+    
+                        // Update the user information in the user-store file
+                        FileUtil.updateUserLine("data/user-store.txt", uuid, newPatient);
+    
+                        clearTerminal();
+                        System.out.println("===== Registration Successful =====");
+                        System.out.println("You can now log in.");
+                        System.out.println("====================================");
+                        return;
+                    } else {
+                        clearTerminal();
+                        System.out.println("===== Error =====");
+                        System.out.println("The email and UUID combination was not found.");
+                        System.out.println("Please try again.");
+                        System.out.println("=================");
+                    }
+                    break;
+    
+                case "2":
+                    clearTerminal();
+                    System.out.println("===== Registration Request =====");
+                    System.out.print("Enter your email: ");
+                    String requestEmail = reader.readLine();
+    
+                    // Check if the email exists in the onboarding list
+                    boolean emailInOnboarding = FileUtil.checkEmailExists("data/onboarding-list.txt", requestEmail);
+    
+                    if (!emailInOnboarding) {
+                        FileUtil.appendEmailToFile("data/onboarding-list.txt", requestEmail);
+                        clearTerminal();
+                        System.out.println("===== Request Submitted =====");
+                        System.out.println("You are on the waiting list to be registered by an admin.");
+                        System.out.println("=============================");
+                    } else {
+                        clearTerminal();
+                        System.out.println("===== Already Registered =====");
+                        System.out.println("Your email is already on the onboarding list.");
+                        System.out.println("Please wait for an admin to complete your registration.");
+                        System.out.println("===============================");
+                    }
+    
+                    // Returning to the login page after a few seconds
+                    try {
+                        Thread.sleep(3000);
+                    } catch (InterruptedException e) {
+                        Thread.currentThread().interrupt();
+                    }
+                    return;
+    
+                case "3":
+                    clearTerminal();
+                    System.out.println("Registration exited.");
+                    return;
+    
+                default:
+                    clearTerminal();
+                    System.out.println("Invalid option. Please try again.");
+                    break;
+            }
         }
     }
+    
+    // Utility method to clear the terminal
+    private static void clearTerminal() {
+        try {
+            if (System.getProperty("os.name").contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                Runtime.getRuntime().exec("clear");
+            }
+        } catch (IOException | InterruptedException ex) {
+            System.out.println("Error clearing the terminal.");
+        }
+    }
+    
+    
+    
     
 
     private static void adminMenu(BufferedReader reader) throws IOException {
@@ -194,11 +367,69 @@ public class Main {
     }
 
     private static void initiatePatientRegistration(BufferedReader reader) throws IOException {
-        System.out.print("Enter patient email: ");
-        String email = reader.readLine();
-        FileUtil.appendLine("data/onboarding-list.txt", email);
-        System.out.println("Patient registration initiated.");
+        System.out.println("1. View Waiting List");
+        System.out.println("2. Register Email");
+        System.out.print("Choose an option: ");
+        String option = reader.readLine();
+    
+        switch (option) {
+            case "1":
+                // View Waiting List
+                List<String> waitingList = FileUtil.getWaitingList("data/onboarding-list.txt");
+                if (waitingList.isEmpty()) {
+                    System.out.println("No emails in the waiting list.");
+                } else {
+                    System.out.println("Emails in Waiting List:");
+                    for (int i = 0; i < waitingList.size(); i++) {
+                        System.out.println((i + 1) + ". " + waitingList.get(i));
+                    }
+                    System.out.println("\n1. Register All");
+                    System.out.println("2. Register One by One");
+                    System.out.print("Choose an option: ");
+                    String registerOption = reader.readLine();
+    
+                    if ("1".equals(registerOption)) {
+                        // Register All
+                        for (String email : waitingList) {
+                            registerPatientFromWaitingList(email, reader);
+                        }
+                    } else if ("2".equals(registerOption)) {
+                        // Register One by One
+                        System.out.print("Enter the number of the email you want to register: ");
+                        int emailIndex = Integer.parseInt(reader.readLine()) - 1;
+                        if (emailIndex >= 0 && emailIndex < waitingList.size()) {
+                            registerPatientFromWaitingList(waitingList.get(emailIndex), reader);
+                        } else {
+                            System.out.println("Invalid selection.");
+                        }
+                    }
+                }
+                break;
+    
+            case "2":
+                // Register New Email
+                System.out.print("Enter patient email: ");
+                String email = reader.readLine();
+                String uuid = generateUUIDFromEmail(email);
+                FileUtil.initiatePatientRegistration("data/user-store.txt", email, uuid);
+                System.out.println("Patient registration initiated with");
+                System.out.println("Email: " + email);
+                System.out.println("UUID: " + uuid);
+                break;
+    
+            default:
+                System.out.println("Invalid option. Please try again.");
+                break;
+        }
     }
+    private static void registerPatientFromWaitingList(String email, BufferedReader reader) throws IOException {
+        System.out.println("Registering email: " + email);
+        String uuid = generateUUIDFromEmail(email);
+        FileUtil.initiatePatientRegistration("data/user-store.txt", email, uuid);
+        FileUtil.removeEmailFromWaitingList("data/onboarding-list.txt", email);
+        System.out.println("Registration completed for email: " + email);
+    }
+    
 
     private static void downloadUserCSV() {
         try {
@@ -268,35 +499,70 @@ public class Main {
             System.out.printf("| %-34s | %-34s |%n", "Vaccinated", (patient.isVaccinated() ? "Yes" : "No"));
             System.out.printf("| %-34s | %-34s |%n", "Vaccination Date", (patient.getVaccinationDate() != null ? patient.getVaccinationDate() : "N/A"));
             System.out.printf("| %-34s | %-34s |%n", "Country", (patient.getCountry() != null ? patient.getCountry() : "Not provided"));
-            
+    
+            System.out.println("+------------------------------------+------------------------------------+");
+    
             // Lifespan computation
             if (patient.isHasChronicDisease() && patient.getChronicDiseaseStartDate() != null && patient.getVaccinationDate() != null && patient.getCountry() != null) {
                 double lifespan = calculateRemainingLifespan(patient);
-                System.out.printf("| %-34s | %-34s |%n", "Estimated Remaining Lifespan (Years)", String.format("%.2f", lifespan));
+                int delayYears = patient.getVaccinationDate().getYear() - patient.getChronicDiseaseStartDate().getYear();
+            
+                // Calculate the number of months and round up the years
+                int years = (int) Math.floor(lifespan);
+                int months = (int) ((lifespan - years) * 12);
+                int roundedYears = (int) Math.ceil(lifespan);
+            
+                System.out.println("\n===== Patient Lifespan Details =====\n");
+            
+                // Display when the patient was supposed to start medication
+                System.out.println("1. Year Supposed to Start Medication: " + patient.getChronicDiseaseStartDate().getYear());
+                
+                // Display the year the patient actually started medication
+                System.out.println("2. Year Started Medication: " + patient.getVaccinationDate().getYear());
+            
+                // Provide a summary of how the lifespan was reduced
+                System.out.println("\n===== Summary of Lifespan Reduction =====");
+                System.out.printf("1. Expected lifespan without HIV: %.2f years%n", CountrySearchUtil.getCountryLifeExpectancy(patient.getCountry()) - (LocalDate.now().getYear() - patient.getBirthDate().getYear()));
+                System.out.printf("2. Initial reduction due to HIV: %.2f%%%n", 10.0);
+                System.out.printf("3. Further reduction for each year of delay (%d years): %.2f%%%n", delayYears, 10.0 * (delayYears + 1));
+                
+                // Show lifespan in years and months
+                System.out.println("\n===== Final Lifespan Estimation =====");
+                System.out.printf("Estimated Remaining Lifespan: %d years and %d months%n", years, months);
+                System.out.println("Or, rounded to the nearest year: " + roundedYears + " years");
+            
+                System.out.println("\n=====================================\n");
             } else {
-                System.out.printf("| %-34s | %-34s |%n", "Estimated Remaining Lifespan (Years)", "Insufficient data to calculate");
+                System.out.println("Insufficient data to estimate lifespan.");
             }
-    
-            System.out.println("+------------------------------------+------------------------------------+");
+            
         } else {
             System.out.println("The current user is not a patient.");
         }
     }
+    
     
     private static double calculateRemainingLifespan(Patient patient) {
         double averageLifespan = CountrySearchUtil.getCountryLifeExpectancy(patient.getCountry());
         int age = LocalDate.now().getYear() - patient.getBirthDate().getYear();
         double remainingLifespan = averageLifespan - age;
     
+        // Check if the patient is not vaccinated
         if (!patient.isVaccinated()) {
             return Math.min(remainingLifespan, 5);
         }
     
+        // Calculate the number of years of delay in starting the ART drugs
         int delayYears = patient.getVaccinationDate().getYear() - patient.getChronicDiseaseStartDate().getYear();
-        remainingLifespan *= Math.pow(0.9, delayYears + 1); // Reduce by 10% for each year of delay
+    
+        // Deduct 10% of remaining lifespan for each year of delay
+        for (int i = 0; i <= delayYears; i++) {
+            remainingLifespan *= 0.9; // Reduce by 10% for each year of delay
+        }
     
         return remainingLifespan;
     }
+    
     
     private static void editProfile(BufferedReader reader) throws IOException {
         if (currentUser instanceof Patient) {
@@ -381,8 +647,8 @@ public class Main {
             for (int i = 0; i < userStoreLines.size(); i++) {
                 String[] parts = userStoreLines.get(i).split(",");
                 if (parts[0].equals(patient.getUuid())) {  // Match by UUID
-                    userStoreLines.set(i, String.join(",", patient.getUuid(), patient.getFirstName(), patient.getLastName(),
-                            patient.getEmail(), patient.getPassword(), patient.getSalt(), patient.getRole().toString()));
+                    userStoreLines.set(i, String.join(",", patient.getUuid(),patient.getEmail(), patient.getFirstName(), patient.getLastName(),
+                             patient.getPassword(), patient.getSalt(), patient.getRole().toString()));
                     updated = true;
                     break;
                 }

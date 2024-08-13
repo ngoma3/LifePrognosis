@@ -51,7 +51,8 @@ public class CountrySearchUtil {
 
     public static double getCountryLifeExpectancy(String countryIdentifier) {
         if (countries == null) {
-            throw new IllegalStateException("Countries data has not been loaded. Please load countries from CSV first.");
+            countries = loadCountriesFromCSV("data/life-expectancy.csv");
+            // throw new IllegalStateException("Countries data has not been loaded. Please load countries from CSV first.");
         }
 
         for (Country country : countries) {
