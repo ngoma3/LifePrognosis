@@ -9,15 +9,18 @@ public abstract class User {
     protected String password;
     protected UserRole role;
     protected String salt;
+    protected GenderType gender;
     private String uuid;
 
+
     // Constructor
-    public User(String firstName, String lastName, String email, String password, UserRole role, String salt, String uuid) {
+    public User(String firstName, String lastName, String email, String password, UserRole role, String salt, String uuid, GenderType gender) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.role = role;
+        this.gender = gender;
         this.salt = salt;
         this.uuid = (uuid == null || uuid.isEmpty()) ? UUID.randomUUID().toString() : uuid;
     }
@@ -77,6 +80,13 @@ public abstract class User {
     
     public void setUuid(String uuid) {
         this.uuid = uuid;
+    }
+    public GenderType getGender() {
+        return gender;
+    }
+    
+    public void setGender(GenderType gender) {
+        this.gender = gender;
     }
 
     // Abstract method to view the dashboard

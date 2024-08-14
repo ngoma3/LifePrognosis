@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
+import java.io.Console;
 import java.io.InputStreamReader;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.UUID;
 
 
@@ -22,11 +24,11 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         userManagement.loadUsers();
         createFirstAdmin();
-        displayWelcomeMessage();
+        // displayWelcomeMessage();
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
-                clearScreen();
+                // clearScreen();
                 System.out.println("Welcome to the Life Prognosis System");
                 System.out.println("1. Login");
                 System.out.println("2. Register");
@@ -76,7 +78,7 @@ public class Main {
             
             int exitCode = process.waitFor();
             if (exitCode == 0) {
-                Admin admin = new Admin(firstName, lastName, email, hashedPassword, salt);
+                User admin = new Admin(firstName, lastName, email, hashedPassword, salt,GenderType.MALE);
                 userManagement.addSuperAdmin(admin);
             } 
         } catch (IOException | InterruptedException e) {
@@ -100,20 +102,37 @@ public class Main {
     private static void login(BufferedReader reader) throws IOException {
         System.out.print("Enter email: ");
         String email = reader.readLine();
-        System.out.print("Enter password: ");
-        String password = reader.readLine();
+        
+        // Hide password input
+        String password = readPassword("Enter password: ");
         
         User user = userManagement.getUserByEmail(email);
         if (user != null && PasswordUtil.verifyPassword(password, user.getSalt(), user.getPassword())) {
             currentUser = user;
             System.out.println("Login successful!");
-
+    
             // Call the appropriate dashboard based on the user's role
             user.viewDashboard(reader);
         } else {
+            
             System.out.println("Invalid email or password.");
         }
     }
+    
+    // Method to read password with masking
+    private static String readPassword(String prompt) throws IOException {
+        Console console = System.console();
+        if (console != null) {
+            char[] passwordChars = console.readPassword(prompt);
+            return new String(passwordChars);
+        } else {
+            // Fallback if System.console() is not available (e.g., in some IDEs)
+            System.out.print(prompt);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+            return reader.readLine();
+        }
+    }
+    
 
     private static void register(BufferedReader reader) throws IOException {
         while (true) {
@@ -146,39 +165,93 @@ public class Main {
     }
 
     private static void finalizeRegistration(BufferedReader reader) throws IOException {
-        clearScreen();
-        System.out.println("===== Finalize Registration =====");
-        System.out.print("Enter your email: ");
-        String email = reader.readLine();
-        System.out.print("Enter your UUID: ");
-        String uuid = reader.readLine();
+    clearScreen();
+    System.out.println("===== Finalize Registration =====");
+    System.out.print("Enter your email: ");
+    String email = reader.readLine();
+    System.out.print("Enter your UUID: ");
+    String uuid = reader.readLine();
 
-        boolean emailAndUuidExist = FileUtil.checkEmailAndUuidExist("data/user-store.txt", email, uuid);
-        if (emailAndUuidExist) {
-            System.out.print("Enter your first name: ");
-            String firstName = reader.readLine();
-            System.out.print("Enter your last name: ");
-            String lastName = reader.readLine();
-            System.out.print("Enter your password: ");
-            String password = reader.readLine();
+    boolean emailAndUuidExist = FileUtil.checkEmailAndUuidExist("data/user-store.txt", email, uuid);
+    if (emailAndUuidExist) {
+        System.out.print("Enter your first name: ");
+String firstName = reader.readLine();
+System.out.print("Enter your last name: ");
+String lastName = reader.readLine();
 
-            String salt = PasswordUtil.getSalt();
-            String hashedPassword = PasswordUtil.hashPassword(password, salt);
-            Patient newPatient = new Patient(firstName, lastName, email, hashedPassword, salt, uuid, null, false, null, false, null, null);
-            FileUtil.updateUserLine("data/user-store.txt", uuid, newPatient);
+// Prompt for gender
+GenderType gender = null;
+boolean validChoice = false;
 
-            clearScreen();
-            System.out.println("===== Registration Successful =====");
-            System.out.println("You can now log in.");
-            System.out.println("====================================");
-        } else {
-            clearScreen();
-            System.out.println("===== Error =====");
-            System.out.println("The email and UUID combination was not found.");
-            System.out.println("Please try again.");
-            System.out.println("=================");
-        }
+while (!validChoice) {
+    System.out.println("Select your gender:");
+    System.out.println("1. Male");
+    System.out.println("2. Female");
+    System.out.print("Enter choice: ");
+    String genderInput = reader.readLine();
+
+    switch (genderInput) {
+        case "1":
+            gender = GenderType.MALE;
+            validChoice = true;
+            break;
+        case "2":
+            gender = GenderType.FEMALE;
+            validChoice = true;
+            break;
+        default:
+            System.out.println("Invalid choice. Please try again.");
+            break;
     }
+}
+
+
+        // Use Console to read password and confirmation without displaying it
+        Console console = System.console();
+        if (console == null) {
+            throw new IOException("No console available to securely read the password.");
+        }
+
+        char[] passwordArray;
+        char[] confirmPasswordArray;
+
+        while (true) {
+            passwordArray = console.readPassword("Enter your password: ");
+            confirmPasswordArray = console.readPassword("Confirm your password: ");
+
+            // Convert char[] to String
+            String password = new String(passwordArray);
+            String confirmPassword = new String(confirmPasswordArray);
+
+            // Clear password arrays for security
+            Arrays.fill(passwordArray, ' ');
+            Arrays.fill(confirmPasswordArray, ' ');
+
+            if (password.equals(confirmPassword)) {
+                String salt = PasswordUtil.getSalt();
+                String hashedPassword = PasswordUtil.hashPassword(password, salt);
+                Patient newPatient = new Patient(firstName, lastName, email, hashedPassword, salt, uuid, null, false, null, false, null, null,gender);
+                FileUtil.updateUserLine("data/user-store.txt", uuid, newPatient);
+                userManagement.updateUsers(newPatient);
+
+                clearScreen();
+                System.out.println("===== Registration Successful =====");
+                System.out.println("You can now log in.");
+                System.out.println("====================================");
+                break;
+            } else {
+                System.out.println("Passwords do not match. Please try again.");
+            }
+        }
+    } else {
+        clearScreen();
+        System.out.println("===== Error =====");
+        System.out.println("The email and UUID combination was not found.");
+        System.out.println("Please try again.");
+        System.out.println("=================");
+    }
+}
+
 
     private static void registrationRequest(BufferedReader reader) throws IOException {
         clearScreen();
@@ -208,7 +281,7 @@ public class Main {
         }
     }
     public static void setCurrentUser(User user) {
-        // Your existing code
+        
     }
 
 

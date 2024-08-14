@@ -50,11 +50,17 @@ public class CountrySearchUtil {
     }
 
     public static double getCountryLifeExpectancy(String countryIdentifier) {
+        
+    
         if (countries == null) {
+            // System.out.println("Countries list is null. Loading countries from CSV.");
             countries = loadCountriesFromCSV("data/life-expectancy.csv");
-            // throw new IllegalStateException("Countries data has not been loaded. Please load countries from CSV first.");
         }
-
+        if (countryIdentifier == null) {
+            // System.out.println("Country identifier is null. Returning default value.");
+            return 0; // You can change this to a more appropriate default value if needed.
+        }else{
+        
         for (Country country : countries) {
             if (country.getCountryName().equalsIgnoreCase(countryIdentifier) ||
                 country.getEnglishShortName().equalsIgnoreCase(countryIdentifier) ||
@@ -64,6 +70,11 @@ public class CountrySearchUtil {
                 return country.getLifeExpectancy();
             }
         }
+        }
+        // If no match is found
+        // System.out.println("Country not found with the identifier: " + countryIdentifier);
         throw new IllegalArgumentException("Country not found with the given identifier: " + countryIdentifier);
     }
+    
+    
 }

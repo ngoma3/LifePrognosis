@@ -1,8 +1,0 @@
-uuid,firstName,lastName,email,role,birthDate,hasChronicDisease,chronicDiseaseStartDate,vaccinated,vaccinationDate,country
-629df614-00a6-49f4-ae60-45ff39a6e063,cngoma@gmail.com,ngoma,chris,PATIENT,1990-02-28,true,2005-02-03,true,2007-03-14,TGO
-f90920a1-f73f-4c5c-bbed-563cb1a8d578,rachel@gmail.com,rachel,ton,PATIENT,1990-05-02,true,2000-05-06,true,2005-03-14,RWA
-ce05e147-5820-375e-a63b-dfa10bcf4203,ngoma2@gmail.com,ngoma,chris,PATIENT,,,,,,
-6ace913c-6aec-3eae-b4d3-31d7590ef997,ngoma3@gmail.com,ngoma,chris,PATIENT,,,,,,
-6b422ef4-e091-3f3e-938a-35d9d7a0b710,ngoma4@gmail.com,,,,,,,,,
-7df8b6e0-b463-4928-b594-a797ed495431,ngoma5@gmail.com,ngoma,chris,ADMIN,,,,,,
-c6c9f24f-a9f8-33c9-a44e-a150f8ccd843,ngoma6@gmail.com,,,,,,,,,

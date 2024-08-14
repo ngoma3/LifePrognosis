@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader; // Add this import
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
@@ -17,8 +16,8 @@ public class Patient extends User {
     // Constructor with UUID
     public Patient(String firstName, String lastName, String email, String password, String salt, String uuid,
                    LocalDate birthDate, boolean hasChronicDisease, LocalDate chronicDiseaseStartDate,
-                   boolean vaccinated, LocalDate vaccinationDate, String country) {
-        super(firstName, lastName, email, password, UserRole.PATIENT, salt, uuid);
+                   boolean vaccinated, LocalDate vaccinationDate, String country,GenderType gender) {
+        super(firstName, lastName, email, password, UserRole.PATIENT, salt, uuid, gender);
         this.birthDate = birthDate;
         this.hasChronicDisease = hasChronicDisease;
         this.chronicDiseaseStartDate = chronicDiseaseStartDate;
@@ -30,9 +29,9 @@ public class Patient extends User {
     // Constructor without UUID, generates one
     public Patient(String firstName, String lastName, String email, String password, String salt,
                    LocalDate birthDate, boolean hasChronicDisease, LocalDate chronicDiseaseStartDate,
-                   boolean vaccinated, LocalDate vaccinationDate, String country) {
+                   boolean vaccinated, LocalDate vaccinationDate, String country, GenderType gender) {
         this(firstName, lastName, email, password, salt, UUID.randomUUID().toString(),
-             birthDate, hasChronicDisease, chronicDiseaseStartDate, vaccinated, vaccinationDate, country);
+             birthDate, hasChronicDisease, chronicDiseaseStartDate, vaccinated, vaccinationDate, country, gender);
     }
 
     // Getters and Setters
@@ -86,8 +85,9 @@ public class Patient extends User {
 
     @Override
 public void viewDashboard(BufferedReader reader) throws IOException {
+    Main.clearScreen();
     while (true) {
-        Main.clearScreen();
+        
         System.out.println("Patient Dashboard");
         System.out.println("1. View Profile");
         System.out.println("2. Edit Profile");
@@ -252,6 +252,7 @@ public void viewDashboard(BufferedReader reader) throws IOException {
             System.out.printf("| %-34s | %-34s |%n", "First Name", (patient.getFirstName() != null ? patient.getFirstName() : "Not provided"));
             System.out.printf("| %-34s | %-34s |%n", "Last Name", (patient.getLastName() != null ? patient.getLastName() : "Not provided"));
             System.out.printf("| %-34s | %-34s |%n", "Email", (patient.getEmail() != null ? patient.getEmail() : "Not provided"));
+            System.out.printf("| %-34s | %-34s |%n", "Gender", (patient.getGender() != null ? patient.getGender() : "Not provided"));
             System.out.printf("| %-34s | %-34s |%n", "Birth Date", (patient.getBirthDate() != null ? patient.getBirthDate() : "Not provided"));
             System.out.printf("| %-34s | %-34s |%n", "Has Chronic Disease", (patient.isHasChronicDisease() ? "Yes" : "No"));
             System.out.printf("| %-34s | %-34s |%n", "Chronic Disease Start Date", (patient.getChronicDiseaseStartDate() != null ? patient.getChronicDiseaseStartDate() : "N/A"));
@@ -300,7 +301,12 @@ public void viewDashboard(BufferedReader reader) throws IOException {
         }
     }
 
-    private static double calculateRemainingLifespan(Patient patient) {
+    public static double calculateRemainingLifespan(Patient patient) {
+        // Check if the patient's country is null
+        if (patient.getCountry() == null) {
+            return 0;
+        }
+    
         double averageLifespan = CountrySearchUtil.getCountryLifeExpectancy(patient.getCountry());
         int age = LocalDate.now().getYear() - patient.getBirthDate().getYear();
         double remainingLifespan = averageLifespan - age;
@@ -320,5 +326,6 @@ public void viewDashboard(BufferedReader reader) throws IOException {
     
         return remainingLifespan;
     }
+    
 
 }

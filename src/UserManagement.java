@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.*;
-import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 
@@ -27,7 +24,7 @@ public class UserManagement {
                 String[] parts = line.split(",");
     
                 // Validate the number of parts
-                if (parts.length != 7) {
+                if (parts.length != 8) {
                     // System.err.println("Invalid user data format: " + line);
                     continue;
                 }
@@ -39,12 +36,18 @@ public class UserManagement {
                 String password = parts[4].trim();
                 String salt = parts[5].trim();
                 UserRole role = UserRole.valueOf(parts[6].trim());
+                GenderType gender = GenderType.valueOf(parts[7].trim());
     
                 User user = null;
                 if (role == UserRole.ADMIN) {
-                    user = new Admin(firstName, lastName, email, password, salt, uuid);
+                    // System.out.println("Login successful!"+firstName+" "+ lastName+" "+ email+" "+password+" "+salt+" "+uuid);
+                    user = new Admin(firstName, lastName, email, password, salt, gender);
                 } else if (role == UserRole.PATIENT) {
-                    user = new Patient(firstName, lastName, email, password, salt, uuid, null, false, null, false, null, null);
+                    // System.out.println("Login successful!"+firstName+" "+ lastName+" "+ email+" "+password+" "+salt+" "+uuid);
+                    // user = new Patient(firstName, lastName, email, password, salt, uuid, null, false, null, false, null, null, gender);
+                    user = new Patient(firstName, lastName, email, password, salt, uuid, 
+                   null, false, null, false, null, null, gender);
+
                 }
     
                 if (user != null) {
@@ -104,7 +107,7 @@ public class UserManagement {
         // Add users to the list
         users.addAll(userMap.values());
     }
-    
+    // loadUsers() ;
     private LocalDate parseLocalDate(String dateStr) {
         try {
             return dateStr != null && !dateStr.isEmpty() ? LocalDate.parse(dateStr) : null;
@@ -114,6 +117,16 @@ public class UserManagement {
             return null;
         }
     }
+    public List<Patient> getAllPatients() {
+    List<Patient> patients = new ArrayList<>();
+    for (User user : users) {
+        if (user instanceof Patient) {
+            patients.add((Patient) user);
+        }
+    }
+    return patients;
+    }
+
     public void addSuperAdmin(User user) {
         users.add(user);
     }
@@ -123,10 +136,15 @@ public class UserManagement {
         String userString = String.join(",",user.getUuid(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getPassword(), user.getSalt(), user.getRole().toString());
         FileUtil.appendLine("data/user-store.txt", userString);
     }
+    public void updateUsers(User user) {
+        users.add(user);
+    }
 
     public User getUserByEmail(String email) {
         for (User user : users) {
+            // System.out.println(user.getEmail());
             if (user.getEmail().equals(email)) {
+                
                 return user;
             }
         }
