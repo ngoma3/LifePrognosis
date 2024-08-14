@@ -24,7 +24,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         userManagement.loadUsers();
         createFirstAdmin();
-        // displayWelcomeMessage();
+        displayWelcomeMessage();
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
@@ -91,12 +91,14 @@ public class Main {
     }
 
     private static void displayWelcomeMessage() throws InterruptedException {
+        clearScreen();
         String message = "Welcome to the Lifespan Estimation Tool...";
         for (char c : message.toCharArray()) {
             System.out.print(c);
             Thread.sleep(100); // Adjust speed of typing
         }
         System.out.println();
+        clearScreen();
     }
 
     private static void login(BufferedReader reader) throws IOException {
@@ -120,7 +122,7 @@ public class Main {
     }
     
     // Method to read password with masking
-    private static String readPassword(String prompt) throws IOException {
+    public static String readPassword(String prompt) throws IOException {
         Console console = System.console();
         if (console != null) {
             char[] passwordChars = console.readPassword(prompt);

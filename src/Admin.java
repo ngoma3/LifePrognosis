@@ -221,88 +221,100 @@ private String readPassword(String prompt) throws IOException {
     //     }
     // }
     private void downloadAnalyticsCSV() {
-    try {
-        List<Patient> patients = UserManagement.getInstance().getAllPatients();
-
-        // Data structures to store analytics
-        Map<String, List<Double>> countryLifespanMap = new HashMap<>();
-        Map<String, Integer> countryPatientCountMap = new HashMap<>();
-        Map<String, Integer> countryMaleCountMap = new HashMap<>();
-        Map<String, Integer> countryFemaleCountMap = new HashMap<>();
-        Map<String, Map<String, Integer>> countryAgeGroupMap = new HashMap<>();
-
-        // Initialize total counts
-        int totalMales = 0;
-        int totalFemales = 0;
-
-        for (Patient patient : patients) {
-            double remainingLifespan = Patient.calculateRemainingLifespan(patient);
-            if (remainingLifespan == 0) continue;
-
-            String country = patient.getCountry();
-            int age = LocalDate.now().getYear() - patient.getBirthDate().getYear();
-            GenderType gender = patient.getGender(); // Assuming getGender() returns GenderType
-
-            String ageGroup = getAgeGroup(age);
-
-            // Update lifespan statistics per country
-            countryLifespanMap.computeIfAbsent(country, k -> new ArrayList<>()).add(remainingLifespan);
-
-            // Update patient count per country
-            countryPatientCountMap.put(country, countryPatientCountMap.getOrDefault(country, 0) + 1);
-
-            // Update gender counts
-            if (gender == GenderType.MALE) {
-                totalMales++;
-                countryMaleCountMap.put(country, countryMaleCountMap.getOrDefault(country, 0) + 1);
-            } else if (gender == GenderType.FEMALE) {
-                totalFemales++;
-                countryFemaleCountMap.put(country, countryFemaleCountMap.getOrDefault(country, 0) + 1);
+        try {
+            List<Patient> patients = UserManagement.getInstance().getAllPatients();
+    
+            // Data structures to store analytics
+            Map<String, List<Double>> countryLifespanMap = new HashMap<>();
+            Map<String, Integer> countryPatientCountMap = new HashMap<>();
+            Map<String, Integer> countryMaleCountMap = new HashMap<>();
+            Map<String, Integer> countryFemaleCountMap = new HashMap<>();
+            Map<String, Map<String, Integer>> countryAgeGroupMap = new HashMap<>();
+    
+            // Initialize total counts
+            int totalMales = 0;
+            int totalFemales = 0;
+    
+            for (Patient patient : patients) {
+                double remainingLifespan = Patient.calculateRemainingLifespan(patient);
+                if (remainingLifespan == 0) continue;
+                String countryCode = patient.getCountry(); // This gives you the code
+                String country = CountrySearchUtil.getCountryName(countryCode); // Use the country name
+                int age = LocalDate.now().getYear() - patient.getBirthDate().getYear();
+                GenderType gender = patient.getGender(); // Assuming getGender() returns GenderType
+    
+                String ageGroup = getAgeGroup(age);
+    
+                // Update lifespan statistics per country
+                countryLifespanMap.computeIfAbsent(country, k -> new ArrayList<>()).add(remainingLifespan);
+    
+                // Update patient count per country
+                countryPatientCountMap.put(country, countryPatientCountMap.getOrDefault(country, 0) + 1);
+    
+                // Update gender counts
+                if (gender == GenderType.MALE) {
+                    totalMales++;
+                    countryMaleCountMap.put(country, countryMaleCountMap.getOrDefault(country, 0) + 1);
+                } else if (gender == GenderType.FEMALE) {
+                    totalFemales++;
+                    countryFemaleCountMap.put(country, countryFemaleCountMap.getOrDefault(country, 0) + 1);
+                }
+    
+                // Update age group counts per country
+                countryAgeGroupMap.computeIfAbsent(country, k -> new HashMap<>())
+                        .put(ageGroup, countryAgeGroupMap.get(country).getOrDefault(ageGroup, 0) + 1);
             }
-
-            // Update age group counts per country
-            countryAgeGroupMap.computeIfAbsent(country, k -> new HashMap<>())
-                    .put(ageGroup, countryAgeGroupMap.get(country).getOrDefault(ageGroup, 0) + 1);
+    
+            // Top 5 countries with the most patients
+            List<Map.Entry<String, Integer>> sortedCountriesByPatients = countryPatientCountMap.entrySet().stream()
+                    .sorted((e1, e2) -> Integer.compare(e2.getValue(), e1.getValue()))
+                    .limit(5)
+                    .collect(Collectors.toList()); // Changed to Collectors.toList()
+    
+            // Prepare arguments for the bash script
+            List<String> scriptArgs = new ArrayList<>();
+            scriptArgs.add("bash/analytics_csv.sh");
+            scriptArgs.add(String.valueOf(totalMales));
+            scriptArgs.add(String.valueOf(totalFemales));
+    
+            StringBuilder topCountriesSummary = new StringBuilder();
+            for (Map.Entry<String, Integer> entry : sortedCountriesByPatients) {
+                topCountriesSummary.append(entry.getKey())
+                        .append(" (")
+                        .append(entry.getValue())
+                        .append(" patients), ");
+            }
+            if (topCountriesSummary.length() > 0) {
+                topCountriesSummary.setLength(topCountriesSummary.length() - 2); // Remove trailing comma and space
+            }
+            scriptArgs.add(topCountriesSummary.toString());
+    
+            for (String country : countryLifespanMap.keySet()) {
+                double totalLifespan = countryLifespanMap.get(country).stream().mapToDouble(Double::doubleValue).sum();
+                double averageLifespan = totalLifespan / countryLifespanMap.get(country).size();
+                double medianLifespan = calculateMedian(countryLifespanMap.get(country));
+                double percentile90 = calculatePercentile(countryLifespanMap.get(country), 90);
+    
+                scriptArgs.add(country);
+                scriptArgs.add(String.valueOf(averageLifespan));
+                scriptArgs.add(String.valueOf(medianLifespan));
+                scriptArgs.add(String.valueOf(percentile90));
+                scriptArgs.add(String.valueOf(countryPatientCountMap.get(country)));
+                scriptArgs.add(String.valueOf(countryMaleCountMap.getOrDefault(country, 0)));
+                scriptArgs.add(String.valueOf(countryFemaleCountMap.getOrDefault(country, 0)));
+                scriptArgs.add(countryAgeGroupMap.get(country).toString());
+            }
+    
+            // Execute the bash script with all the arguments
+            Process process = new ProcessBuilder(scriptArgs.toArray(new String[0])).start();
+            process.waitFor();
+    
+            System.out.println("Statistics CSV generated.");
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
         }
-
-        // Top 5 countries with the most patients
-        List<Map.Entry<String, Integer>> sortedCountriesByPatients = countryPatientCountMap.entrySet().stream()
-                .sorted((e1, e2) -> Integer.compare(e2.getValue(), e1.getValue()))
-                .limit(5)
-                .collect(Collectors.toList()); // Changed to Collectors.toList()
-
-        // Prepare arguments for the bash script
-        List<String> scriptArgs = new ArrayList<>();
-        scriptArgs.add("bash/analytics_csv.sh");
-        scriptArgs.add(String.valueOf(totalMales));
-        scriptArgs.add(String.valueOf(totalFemales));
-        scriptArgs.add(sortedCountriesByPatients.toString());
-
-        for (String country : countryLifespanMap.keySet()) {
-            double totalLifespan = countryLifespanMap.get(country).stream().mapToDouble(Double::doubleValue).sum();
-            double averageLifespan = totalLifespan / countryLifespanMap.get(country).size();
-            double medianLifespan = calculateMedian(countryLifespanMap.get(country));
-            double percentile90 = calculatePercentile(countryLifespanMap.get(country), 90);
-
-            scriptArgs.add(country);
-            scriptArgs.add(String.valueOf(averageLifespan));
-            scriptArgs.add(String.valueOf(medianLifespan));
-            scriptArgs.add(String.valueOf(percentile90));
-            scriptArgs.add(String.valueOf(countryPatientCountMap.get(country)));
-            scriptArgs.add(String.valueOf(countryMaleCountMap.getOrDefault(country, 0)));
-            scriptArgs.add(String.valueOf(countryFemaleCountMap.getOrDefault(country, 0)));
-            scriptArgs.add(countryAgeGroupMap.get(country).toString());
-        }
-
-        // Execute the bash script with all the arguments
-        Process process = new ProcessBuilder(scriptArgs.toArray(new String[0])).start();
-        process.waitFor();
-
-        System.out.println("Statistics CSV generated.");
-    } catch (IOException | InterruptedException e) {
-        e.printStackTrace();
     }
-}
+    
 
     
 

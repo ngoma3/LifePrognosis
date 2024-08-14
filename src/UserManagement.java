@@ -133,7 +133,7 @@ public class UserManagement {
 
     public void addUser(User user) {
         users.add(user);
-        String userString = String.join(",",user.getUuid(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getPassword(), user.getSalt(), user.getRole().toString());
+        String userString = String.join(",",user.getUuid(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getPassword(), user.getSalt(), user.getRole().toString(),user.getGender().toString());
         FileUtil.appendLine("data/user-store.txt", userString);
     }
     public void updateUsers(User user) {

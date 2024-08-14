@@ -7,12 +7,12 @@ OUTPUT_CSV="data/all_users.csv"
 
 
 # Create the CSV file for all users with the appropriate headers
-echo "uuid,firstName,lastName,email,role,birthDate,hasChronicDisease,chronicDiseaseStartDate,vaccinated,vaccinationDate,country" > "$OUTPUT_CSV"
+echo "uuid,firstName,lastName,email,role,gender,birthDate,hasChronicDisease,chronicDiseaseStartDate,vaccinated,vaccinationDate,country" > "$OUTPUT_CSV"
 
 
 
 # Loop through each line in user-store.txt (excluding the header if it exists)
-tail -n +2 "$USER_STORE" | while IFS=',' read -r uuid firstName lastName email password salt role; do
+tail -n +2 "$USER_STORE" | while IFS=',' read -r uuid firstName lastName email password salt role gender; do
     # Find the corresponding health data for the user based on UUID
     healthData=$(grep "^$uuid," "$HEALTH_DATA")
 
@@ -29,7 +29,7 @@ tail -n +2 "$USER_STORE" | while IFS=',' read -r uuid firstName lastName email p
     fi
 
     # Append the combined user data to the CSV file
-    echo "$uuid,$firstName,$lastName,$email,$role,$birthDate,$hasChronicDisease,$chronicDiseaseStartDate,$vaccinated,$vaccinationDate,$country" >> "$OUTPUT_CSV"
+    echo "$uuid,$firstName,$lastName,$email,$role,$gender,$birthDate,$hasChronicDisease,$chronicDiseaseStartDate,$vaccinated,$vaccinationDate,$country" >> "$OUTPUT_CSV"
 done
 
 

@@ -48,7 +48,7 @@ public class FileUtil {
             
             process.waitFor();
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
+            // e.printStackTrace();
         }
     }
     public static boolean checkEmailExists(String filePath, String email) {

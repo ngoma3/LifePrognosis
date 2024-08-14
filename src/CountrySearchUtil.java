@@ -48,6 +48,26 @@ public class CountrySearchUtil {
         }
         return results;
     }
+    public static String getCountryName(String countryIdentifier) {
+        if (countries == null) {
+            countries = loadCountriesFromCSV("data/life-expectancy.csv");
+        }
+        if (countryIdentifier == null) {
+            return null; // Return null if no identifier is provided
+        }
+        
+        for (Country country : countries) {
+            if (country.getAlpha2Code().equalsIgnoreCase(countryIdentifier) ||
+                country.getAlpha3Code().equalsIgnoreCase(countryIdentifier) ||
+                country.getCode().equalsIgnoreCase(countryIdentifier)) {
+                return country.getCountryName(); // Return the country name
+            }
+        }
+        
+        // If no match is found, throw an exception or return a default value
+        throw new IllegalArgumentException("Country not found with the given identifier: " + countryIdentifier);
+    }
+    
 
     public static double getCountryLifeExpectancy(String countryIdentifier) {
         
@@ -62,6 +82,7 @@ public class CountrySearchUtil {
         }else{
         
         for (Country country : countries) {
+            System.out.println();
             if (country.getCountryName().equalsIgnoreCase(countryIdentifier) ||
                 country.getEnglishShortName().equalsIgnoreCase(countryIdentifier) ||
                 country.getAlpha2Code().equalsIgnoreCase(countryIdentifier) ||

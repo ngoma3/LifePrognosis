@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.UUID;
 
@@ -114,129 +115,204 @@ public void viewDashboard(BufferedReader reader) throws IOException {
 }
 
 
-    private void editProfile(BufferedReader reader) throws IOException {
-        if (Main.getCurrentUser() instanceof Patient) {
-            Patient patient = (Patient) Main.getCurrentUser();
+private void editProfile(BufferedReader reader) throws IOException {
+    if (Main.getCurrentUser() instanceof Patient) {
+        Patient patient = (Patient) Main.getCurrentUser();
 
-            // Collect updated information from the user
-            System.out.print("Enter new first name (leave blank to keep current): ");
-            String firstName = reader.readLine();
-            if (!firstName.isEmpty()) {
-                patient.setFirstName(firstName);
-            }
+        // Collect updated information from the user
+        System.out.print("Enter new first name (leave blank to keep current): ");
+        String firstName = reader.readLine();
+        if (!firstName.isEmpty()) {
+            patient.setFirstName(firstName);
+        }
 
-            System.out.print("Enter new last name (leave blank to keep current): ");
-            String lastName = reader.readLine();
-            if (!lastName.isEmpty()) {
-                patient.setLastName(lastName);
-            }
+        System.out.print("Enter new last name (leave blank to keep current): ");
+        String lastName = reader.readLine();
+        if (!lastName.isEmpty()) {
+            patient.setLastName(lastName);
+        }
 
-            System.out.print("Enter new birth date (YYYY-MM-DD) (leave blank to keep current): ");
-            String birthDateStr = reader.readLine();
-            if (!birthDateStr.isEmpty()) {
+        System.out.print("Enter new birth date (YYYY-MM-DD) (leave blank to keep current): ");
+        String birthDateStr = reader.readLine();
+        if (!birthDateStr.isEmpty()) {
+            try {
                 patient.setBirthDate(LocalDate.parse(birthDateStr));
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format. Skipping birth date update.");
             }
+        }
 
-            System.out.print("Enter new chronic disease status (true/false) (leave blank to keep current): ");
-            String hasChronicDiseaseStr = reader.readLine();
-            if (!hasChronicDiseaseStr.isEmpty()) {
-                patient.setHasChronicDisease(Boolean.parseBoolean(hasChronicDiseaseStr));
+        // Edit gender
+        while (true) {
+            System.out.print("Enter new gender (1. Male, 2. Female) (leave blank to keep current): ");
+            String genderInput = reader.readLine();
+            if (genderInput.isEmpty()) {
+                break;
             }
-
-            System.out.print("Enter new chronic disease start date (YYYY-MM-DD) (leave blank to keep current): ");
-            String chronicDiseaseStartDateStr = reader.readLine();
-            if (!chronicDiseaseStartDateStr.isEmpty()) {
-                patient.setChronicDiseaseStartDate(LocalDate.parse(chronicDiseaseStartDateStr));
+            switch (genderInput) {
+                case "1":
+                    patient.setGender(GenderType.MALE);
+                    break;
+                case "2":
+                    patient.setGender(GenderType.FEMALE);
+                    break;
+                default:
+                    System.out.println("Invalid gender selection. Please try again.");
+                    continue;
             }
+            break;
+        }
 
-            System.out.print("Enter new vaccination status (true/false) (leave blank to keep current): ");
-            String vaccinatedStr = reader.readLine();
-            if (!vaccinatedStr.isEmpty()) {
-                patient.setVaccinated(Boolean.parseBoolean(vaccinatedStr));
-            }
+        // Edit password
+        System.out.print("Do you want to update your password? (yes/no): ");
+        String updatePassword = reader.readLine();
+        if (updatePassword.equalsIgnoreCase("yes")) {
+            while (true) {
+                // System.out.print("Enter current password: ");
+                String currentPassword = Main.readPassword("Enter current password: ");
 
-            System.out.print("Enter new vaccination date (YYYY-MM-DD) (leave blank to keep current): ");
-            String vaccinationDateStr = reader.readLine();
-            if (!vaccinationDateStr.isEmpty()) {
-                patient.setVaccinationDate(LocalDate.parse(vaccinationDateStr));
-            }
+                if (!PasswordUtil.verifyPassword(currentPassword, patient.getSalt(), patient.getPassword())) {
+                    System.out.println("Current password is incorrect. Please try again.");
+                    continue;
+                }
 
-            System.out.println("Do you want to update the country? (yes/no): ");
-            String updateCountry = reader.readLine();
-            if (updateCountry.equalsIgnoreCase("yes")) {
-                System.out.print("Enter search query for the new country: ");
-                String countryQuery = reader.readLine();
+                // System.out.print("Enter new password: ");
+                String newPassword = Main.readPassword("Enter new password: ");
+                // System.out.print("Confirm new password: ");
+                String confirmPassword = Main.readPassword("Confirm new password: ");
 
-                List<Country> countries = CountrySearchUtil.loadCountriesFromCSV("data/life-expectancy.csv");
-                List<Country> results = CountrySearchUtil.searchCountries(countries, countryQuery);
-
-                if (results.isEmpty()) {
-                    System.out.println("No countries found.");
+                if (!newPassword.equals(confirmPassword)) {
+                    System.out.println("Passwords do not match. Please try again.");
                 } else {
-                    for (int i = 0; i < results.size(); i++) {
-                        System.out.println((i + 1) + ". " + results.get(i));
-                    }
-
-                    System.out.print("Select a result by number: ");
-                    int selectedIndex = Integer.parseInt(reader.readLine()) - 1;
-
-                    if (selectedIndex >= 0 && selectedIndex < results.size()) {
-                        Country selectedCountry = results.get(selectedIndex);
-                        patient.setCountry(selectedCountry.getCode()); // Store the selected country's code
-                        System.out.println("Selected country: " + selectedCountry);
-                    } else {
-                        System.out.println("Invalid selection.");
-                    }
-                }
-            }
-
-            // Continue with updating files as before...
-            // Update the user-store.txt with new general user data
-            List<String> userStoreLines = FileUtil.readLines("data/user-store.txt");
-            boolean updated = false;
-            for (int i = 0; i < userStoreLines.size(); i++) {
-                String[] parts = userStoreLines.get(i).split(",");
-                if (parts[0].equals(patient.getUuid())) {  // Match by UUID
-                    userStoreLines.set(i, String.join(",", patient.getUuid(), patient.getEmail(), patient.getFirstName(), patient.getLastName(),
-                             patient.getPassword(), patient.getSalt(), patient.getRole().toString()));
-                    updated = true;
+                    patient.setPassword(newPassword);
                     break;
                 }
             }
-            if (updated) {
-                FileUtil.writeLines("data/user-store.txt", userStoreLines);
-            }
+        }
 
-            // Update or add new entry in health-data.txt with patient-specific data
-            List<String> healthDataLines = FileUtil.readLines("data/health-data.txt");
-            updated = false;
-            for (int i = 0; i < healthDataLines.size(); i++) {
-                String[] parts = healthDataLines.get(i).split(",");
-                if (parts[0].equals(patient.getUuid())) {  // Match by UUID
-                    healthDataLines.set(i, String.join(",", patient.getUuid(), 
-                            patient.getBirthDate() != null ? patient.getBirthDate().toString() : "",
-                            Boolean.toString(patient.isHasChronicDisease()), 
-                            patient.getChronicDiseaseStartDate() != null ? patient.getChronicDiseaseStartDate().toString() : "",
-                            Boolean.toString(patient.isVaccinated()), 
-                            patient.getVaccinationDate() != null ? patient.getVaccinationDate().toString() : "",
-                            patient.getCountry()));
-                    updated = true;
-                    break;
+        System.out.print("Enter new chronic disease status (true/false) (leave blank to keep current): ");
+        String hasChronicDiseaseStr = reader.readLine();
+        if (!hasChronicDiseaseStr.isEmpty()) {
+            try {
+                patient.setHasChronicDisease(Boolean.parseBoolean(hasChronicDiseaseStr));
+            } catch (Exception e) {
+                System.out.println("Invalid input for chronic disease status. Skipping update.");
+            }
+        }
+
+        System.out.print("Enter new chronic disease start date (YYYY-MM-DD) (leave blank to keep current): ");
+        String chronicDiseaseStartDateStr = reader.readLine();
+        if (!chronicDiseaseStartDateStr.isEmpty()) {
+            try {
+                patient.setChronicDiseaseStartDate(LocalDate.parse(chronicDiseaseStartDateStr));
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format for chronic disease start date. Skipping update.");
+            }
+        }
+
+        System.out.print("Enter new vaccination status (true/false) (leave blank to keep current): ");
+        String vaccinatedStr = reader.readLine();
+        if (!vaccinatedStr.isEmpty()) {
+            try {
+                patient.setVaccinated(Boolean.parseBoolean(vaccinatedStr));
+            } catch (Exception e) {
+                System.out.println("Invalid input for vaccination status. Skipping update.");
+            }
+        }
+
+        System.out.print("Enter new vaccination date (YYYY-MM-DD) (leave blank to keep current): ");
+        String vaccinationDateStr = reader.readLine();
+        if (!vaccinationDateStr.isEmpty()) {
+            try {
+                patient.setVaccinationDate(LocalDate.parse(vaccinationDateStr));
+            } catch (DateTimeParseException e) {
+                System.out.println("Invalid date format for vaccination date. Skipping update.");
+            }
+        }
+
+        System.out.println("Do you want to update the country? (yes/no): ");
+        String updateCountry = reader.readLine();
+        if (updateCountry.equalsIgnoreCase("yes")) {
+            System.out.print("Enter search query for the new country: ");
+            String countryQuery = reader.readLine();
+
+            List<Country> countries = CountrySearchUtil.loadCountriesFromCSV("data/life-expectancy.csv");
+            List<Country> results = CountrySearchUtil.searchCountries(countries, countryQuery);
+
+            if (results.isEmpty()) {
+                System.out.println("No countries found.");
+            } else {
+                for (int i = 0; i < results.size(); i++) {
+                    System.out.println((i + 1) + ". " + results.get(i));
+                }
+
+                System.out.print("Select a result by number: ");
+                int selectedIndex = Integer.parseInt(reader.readLine()) - 1;
+
+                if (selectedIndex >= 0 && selectedIndex < results.size()) {
+                    Country selectedCountry = results.get(selectedIndex);
+                    patient.setCountry(selectedCountry.getCode()); // Store the selected country's code
+                    System.out.println("Selected country: " + selectedCountry);
+                } else {
+                    System.out.println("Invalid selection.");
                 }
             }
-            if (!updated) {
-                // Add new entry if it was not updated
-                healthDataLines.add(String.join(",", patient.getUuid(), 
-                        patient.getBirthDate() != null ? patient.getBirthDate().toString() : "",
-                        Boolean.toString(patient.isHasChronicDisease()), 
-                        patient.getChronicDiseaseStartDate() != null ? patient.getChronicDiseaseStartDate().toString() : "",
-                        Boolean.toString(patient.isVaccinated()), 
-                        patient.getVaccinationDate() != null ? patient.getVaccinationDate().toString() : "",
-                        patient.getCountry()));
-            }
-            FileUtil.writeLines("data/health-data.txt", healthDataLines);
+        }
+
+        // Continue with updating files as before...
+        updateUserStore(patient);
+        updateHealthData(patient);
+    }
+}
+
+private void updateUserStore(Patient patient) throws IOException {
+    List<String> userStoreLines = FileUtil.readLines("data/user-store.txt");
+    boolean updated = false;
+    for (int i = 0; i < userStoreLines.size(); i++) {
+        String[] parts = userStoreLines.get(i).split(",");
+        if (parts[0].equals(patient.getUuid())) {  // Match by UUID
+            userStoreLines.set(i, String.join(",", patient.getUuid(), patient.getEmail(), patient.getFirstName(), patient.getLastName(),
+                    patient.getPassword(), patient.getSalt(), patient.getRole().toString(),patient.getGender().toString()));
+            updated = true;
+            break;
         }
     }
+    if (updated) {
+        FileUtil.writeLines("data/user-store.txt", userStoreLines);
+    }
+}
+
+private void updateHealthData(Patient patient) throws IOException {
+    List<String> healthDataLines = FileUtil.readLines("data/health-data.txt");
+    boolean updated = false;
+    for (int i = 0; i < healthDataLines.size(); i++) {
+        String[] parts = healthDataLines.get(i).split(",");
+        if (parts[0].equals(patient.getUuid())) {  // Match by UUID
+            healthDataLines.set(i, String.join(",", patient.getUuid(), 
+                    patient.getBirthDate() != null ? patient.getBirthDate().toString() : "",
+                    Boolean.toString(patient.isHasChronicDisease()), 
+                    patient.getChronicDiseaseStartDate() != null ? patient.getChronicDiseaseStartDate().toString() : "",
+                    Boolean.toString(patient.isVaccinated()), 
+                    patient.getVaccinationDate() != null ? patient.getVaccinationDate().toString() : "",
+                    patient.getCountry()));
+            updated = true;
+            break;
+        }
+    }
+    if (!updated) {
+        // Add new entry if it was not updated
+        healthDataLines.add(String.join(",", patient.getUuid(), 
+                patient.getBirthDate() != null ? patient.getBirthDate().toString() : "",
+                Boolean.toString(patient.isHasChronicDisease()), 
+                patient.getChronicDiseaseStartDate() != null ? patient.getChronicDiseaseStartDate().toString() : "",
+                Boolean.toString(patient.isVaccinated()), 
+                patient.getVaccinationDate() != null ? patient.getVaccinationDate().toString() : "",
+                patient.getCountry()));
+    }
+    FileUtil.writeLines("data/health-data.txt", healthDataLines);
+}
+
+
 
     private void viewProfile() {
         if (Main.getCurrentUser() == null) {
@@ -303,7 +379,7 @@ public void viewDashboard(BufferedReader reader) throws IOException {
 
     public static double calculateRemainingLifespan(Patient patient) {
         // Check if the patient's country is null
-        if (patient.getCountry() == null) {
+        if (patient.getCountry() == null || patient.getBirthDate() == null) {
             return 0;
         }
     

@@ -1,0 +1,1585 @@
+metric,value
+Total Males,231
+Total Females,238
+Top 5 Countries with Most Patients,Iran (10 patients), Nepal (8 patients), Spain (8 patients), Mongolia (6 patients), Guatemala (6 patients)
+========================
+Country: Papua New Guinea
+Average Lifespan,21.613286700000003
+Median Lifespan,21.613286700000003
+90th Percentile Lifespan,26.203986
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Angola
+Average Lifespan,13.929066841365001
+Median Lifespan,14.288789312730003
+90th Percentile Lifespan,17.531154
+Total Patients,4
+Total Males,3
+Total Females,1
+Age Group Distribution,{40-60=3, 20-40=1}
+--------------------------
+Country: Cambodia
+Average Lifespan,9.178137264699451
+Median Lifespan,8.625150000000001
+90th Percentile Lifespan,15.196626794098352
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=2, 20-40=1}
+--------------------------
+Country: East Timor
+Average Lifespan,9.645564910958726
+Median Lifespan,9.645564910958726
+90th Percentile Lifespan,9.645564910958726
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Kazakhstan
+Average Lifespan,4.343382000000001
+Median Lifespan,4.343382000000001
+90th Percentile Lifespan,4.343382000000001
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Paraguay
+Average Lifespan,30.674319120000007
+Median Lifespan,37.13553
+90th Percentile Lifespan,47.03553000000001
+Total Patients,5
+Total Males,3
+Total Females,2
+Age Group Distribution,{60-80=1, 20-40=2, 0-20=2}
+--------------------------
+Country: Portugal
+Average Lifespan,23.000909419890007
+Median Lifespan,25.41722870700001
+90th Percentile Lifespan,30.650294700000007
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=2}
+--------------------------
+Country: Grenada
+Average Lifespan,15.670508688469457
+Median Lifespan,15.670508688469457
+90th Percentile Lifespan,15.670508688469457
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Solomon Islands
+Average Lifespan,19.915374943123727
+Median Lifespan,13.719694657522775
+90th Percentile Lifespan,44.41293
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=1, 20-40=2}
+--------------------------
+Country: North Korea
+Average Lifespan,22.4419005
+Median Lifespan,22.4419005
+90th Percentile Lifespan,31.554400500000003
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Bahamas
+Average Lifespan,19.924622999999997
+Median Lifespan,19.924622999999997
+90th Percentile Lifespan,19.924622999999997
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Greece
+Average Lifespan,25.081296030000004
+Median Lifespan,25.081296030000004
+90th Percentile Lifespan,40.9046274
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{60-80=1, 20-40=1}
+--------------------------
+Country: Latvia
+Average Lifespan,23.958665999999994
+Median Lifespan,23.958665999999994
+90th Percentile Lifespan,23.958665999999994
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Mongolia
+Average Lifespan,19.194839984695587
+Median Lifespan,20.3581052487
+90th Percentile Lifespan,37.1610666
+Total Patients,6
+Total Males,4
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=4}
+--------------------------
+Country: Morocco
+Average Lifespan,26.260564738950002
+Median Lifespan,26.260564738950002
+90th Percentile Lifespan,32.8355451
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{20-40=2}
+--------------------------
+Country: Iran
+Average Lifespan,13.25188360577837
+Median Lifespan,11.863665945
+90th Percentile Lifespan,19.065392730900005
+Total Patients,10
+Total Males,5
+Total Females,5
+Age Group Distribution,{60-80=3, 40-60=4, 20-40=3}
+--------------------------
+Country: Marshall Islands
+Average Lifespan,4.87890370354896
+Median Lifespan,0.11570958604799952
+90th Percentile Lifespan,14.7759552
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=2, 40-60=1}
+--------------------------
+Country: Mali
+Average Lifespan,11.426044131796111
+Median Lifespan,11.426044131796111
+90th Percentile Lifespan,14.395752540000002
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{20-40=2}
+--------------------------
+Country: Panama
+Average Lifespan,19.112580353062295
+Median Lifespan,17.300969999999996
+90th Percentile Lifespan,36.20097
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Guatemala
+Average Lifespan,16.986913205299203
+Median Lifespan,15.574577616000004
+90th Percentile Lifespan,32.30426448000001
+Total Patients,6
+Total Males,1
+Total Females,5
+Age Group Distribution,{60-80=1, 40-60=2, 20-40=3}
+--------------------------
+Country: Guyana
+Average Lifespan,29.78545121082
+Median Lifespan,32.945454
+90th Percentile Lifespan,34.565454
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{20-40=3}
+--------------------------
+Country: Iraq
+Average Lifespan,16.517508599571205
+Median Lifespan,16.517508599571205
+90th Percentile Lifespan,22.874489099999998
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{20-40=2}
+--------------------------
+Country: Chile
+Average Lifespan,8.949150000000001
+Median Lifespan,8.949150000000001
+90th Percentile Lifespan,8.949150000000001
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Laos
+Average Lifespan,21.516694448184
+Median Lifespan,21.516694448184
+90th Percentile Lifespan,21.9143232
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{20-40=1, 0-20=1}
+--------------------------
+Country: Nepal
+Average Lifespan,16.557644742286552
+Median Lifespan,12.46756736475
+90th Percentile Lifespan,35.50455
+Total Patients,8
+Total Males,5
+Total Females,3
+Age Group Distribution,{60-80=1, 40-60=3, 20-40=4}
+--------------------------
+Country: Argentina
+Average Lifespan,17.0724639419631
+Median Lifespan,13.302399787195492
+90th Percentile Lifespan,39.6502371
+Total Patients,5
+Total Males,4
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=3}
+--------------------------
+Country: Seychelles
+Average Lifespan,21.240895464392835
+Median Lifespan,26.36505
+90th Percentile Lifespan,35.068545
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Tanzania
+Average Lifespan,13.39793865
+Median Lifespan,13.39793865
+90th Percentile Lifespan,16.913310300000003
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{40-60=2}
+--------------------------
+Country: Ukraine
+Average Lifespan,13.1186776303224
+Median Lifespan,13.1186776303224
+90th Percentile Lifespan,13.1186776303224
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Ghana
+Average Lifespan,13.527119555055544
+Median Lifespan,13.527119555055544
+90th Percentile Lifespan,13.527119555055544
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Zambia
+Average Lifespan,3.4209539999999987
+Median Lifespan,3.4209539999999987
+90th Percentile Lifespan,3.4209539999999987
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Belize
+Average Lifespan,12.623332725900005
+Median Lifespan,11.461870170000003
+90th Percentile Lifespan,21.507257837700006
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Bahrain
+Average Lifespan,33.08445
+Median Lifespan,33.08445
+90th Percentile Lifespan,33.08445
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Congo
+Average Lifespan,10.588516252022965
+Median Lifespan,4.869932497541885
+90th Percentile Lifespan,23.659062446700005
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{40-60=2, 0-20=1}
+--------------------------
+Country: India
+Average Lifespan,21.969904870004047
+Median Lifespan,24.573725551800006
+90th Percentile Lifespan,35.024238000000004
+Total Patients,5
+Total Males,2
+Total Females,3
+Age Group Distribution,{60-80=1, 20-40=4}
+--------------------------
+Country: Guinea-Bissau
+Average Lifespan,22.398363
+Median Lifespan,22.398363
+90th Percentile Lifespan,22.398363
+Total Patients,1
+Total Males,0
+Total Females,1
+--------------------------
+Country: Maldives
+Average Lifespan,9.154303204310914
+Median Lifespan,9.154303204310914
+90th Percentile Lifespan,9.734474426399824
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Turkey
+Average Lifespan,14.347110516843605
+Median Lifespan,14.347110516843605
+90th Percentile Lifespan,14.347110516843605
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Belgium
+Average Lifespan,42.1935723
+Median Lifespan,42.1935723
+90th Percentile Lifespan,42.1935723
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Namibia
+Average Lifespan,6.063741809999999
+Median Lifespan,6.063741809999999
+90th Percentile Lifespan,15.51158181
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{60-80=1, 20-40=1}
+--------------------------
+Country: Finland
+Average Lifespan,18.479914712933564
+Median Lifespan,13.960422252567811
+90th Percentile Lifespan,31.620861
+Total Patients,5
+Total Males,2
+Total Females,3
+Age Group Distribution,{60-80=1, 40-60=4}
+--------------------------
+Country: Taiwan
+Average Lifespan,20.274344560422005
+Median Lifespan,14.639027550633003
+90th Percentile Lifespan,32.405913000000005
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{40-60=3}
+--------------------------
+Country: North Macedonia
+Average Lifespan,16.489083667499997
+Median Lifespan,16.489083667499997
+90th Percentile Lifespan,27.75735
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: South Africa
+Average Lifespan,7.3079983028700015
+Median Lifespan,4.334787090000002
+90th Percentile Lifespan,17.365477718610002
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Central African Republic
+Average Lifespan,12.331548
+Median Lifespan,19.354707
+90th Percentile Lifespan,24.20523
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=1, 20-40=2}
+--------------------------
+Country: Georgia
+Average Lifespan,14.867609954580006
+Median Lifespan,15.795563803740006
+90th Percentile Lifespan,27.57234006000001
+Total Patients,3
+Total Males,3
+Total Females,0
+Age Group Distribution,{60-80=1, 20-40=2}
+--------------------------
+Country: Jamaica
+Average Lifespan,41.715242999999994
+Median Lifespan,41.715242999999994
+90th Percentile Lifespan,41.715242999999994
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{0-20=1}
+--------------------------
+Country: Saint Kitts and Nevis
+Average Lifespan,22.5271495251
+Median Lifespan,22.5271495251
+90th Percentile Lifespan,25.8717170502
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Turkmenistan
+Average Lifespan,3.0761649451457975
+Median Lifespan,3.0761649451457975
+90th Percentile Lifespan,6.688582290291599
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Peru
+Average Lifespan,19.759839853455563
+Median Lifespan,13.729876067973697
+90th Percentile Lifespan,35.02058409
+Total Patients,5
+Total Males,2
+Total Females,3
+Age Group Distribution,{60-80=1, 20-40=3, 0-20=1}
+--------------------------
+Country: Yemen
+Average Lifespan,12.279930338006999
+Median Lifespan,12.279930338006999
+90th Percentile Lifespan,18.20900574
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Fiji
+Average Lifespan,21.266911800000006
+Median Lifespan,27.102600000000006
+90th Percentile Lifespan,30.062340000000006
+Total Patients,3
+Total Males,3
+Total Females,0
+Age Group Distribution,{40-60=1, 20-40=2}
+--------------------------
+Country: Guinea
+Average Lifespan,11.456392249285747
+Median Lifespan,12.863514747857227
+90th Percentile Lifespan,15.302682000000004
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{40-60=2, 20-40=1}
+--------------------------
+Country: United States
+Average Lifespan,19.568136600000003
+Median Lifespan,14.578380000000001
+90th Percentile Lifespan,30.130542000000002
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=2}
+--------------------------
+Country: Somalia
+Average Lifespan,12.532205866698009
+Median Lifespan,16.699234347
+90th Percentile Lifespan,24.2613387
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 20-40=2}
+--------------------------
+Country: Chad
+Average Lifespan,1.0735013494799985
+Median Lifespan,-2.004426000000002
+90th Percentile Lifespan,19.796413446000003
+Total Patients,5
+Total Males,1
+Total Females,4
+Age Group Distribution,{60-80=2, 40-60=2, 0-20=1}
+--------------------------
+Country: Sao Tome and Principe
+Average Lifespan,10.432080000000001
+Median Lifespan,10.432080000000001
+90th Percentile Lifespan,10.432080000000001
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Madagascar
+Average Lifespan,-0.9937946700000032
+Median Lifespan,-0.9937946700000032
+90th Percentile Lifespan,-0.9937946700000032
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Thailand
+Average Lifespan,34.58657394
+Median Lifespan,34.58657394
+90th Percentile Lifespan,34.58657394
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Kiribati
+Average Lifespan,11.597255147259487
+Median Lifespan,11.597255147259487
+90th Percentile Lifespan,21.268924919999996
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Equatorial Guinea
+Average Lifespan,15.684238165429887
+Median Lifespan,11.18259979628966
+90th Percentile Lifespan,28.1352447
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{40-60=1, 20-40=2}
+--------------------------
+Country: Costa Rica
+Average Lifespan,23.360396400000003
+Median Lifespan,23.360396400000003
+90th Percentile Lifespan,27.020880000000002
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{40-60=2}
+--------------------------
+Country: Vietnam
+Average Lifespan,11.092351598257745
+Median Lifespan,11.804958384773235
+90th Percentile Lifespan,12.87143541
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Sweden
+Average Lifespan,20.274318909821325
+Median Lifespan,15.4694309085
+90th Percentile Lifespan,38.866473
+Total Patients,4
+Total Males,2
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=2, 20-40=1}
+--------------------------
+Country: Micronesia (country)
+Average Lifespan,19.550753999999998
+Median Lifespan,21.635099999999994
+90th Percentile Lifespan,24.085431
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{40-60=2, 20-40=1}
+--------------------------
+Country: Malawi
+Average Lifespan,19.994993472325202
+Median Lifespan,12.872863634724004
+90th Percentile Lifespan,35.91396
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{20-40=3}
+--------------------------
+Country: Andorra
+Average Lifespan,25.887395429999998
+Median Lifespan,22.877157240000003
+90th Percentile Lifespan,44.43156
+Total Patients,4
+Total Males,2
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=2}
+--------------------------
+Country: Liechtenstein
+Average Lifespan,26.985846070942465
+Median Lifespan,27.085162499999996
+90th Percentile Lifespan,40.708574999999996
+Total Patients,4
+Total Males,1
+Total Females,3
+Age Group Distribution,{40-60=2, 20-40=2}
+--------------------------
+Country: Poland
+Average Lifespan,11.050874460000001
+Median Lifespan,11.050874460000001
+90th Percentile Lifespan,15.39026892
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Bulgaria
+Average Lifespan,0.8599778262000011
+Median Lifespan,0.8599778262000011
+90th Percentile Lifespan,0.8599778262000011
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Jordan
+Average Lifespan,14.465004879150001
+Median Lifespan,14.465004879150001
+90th Percentile Lifespan,16.57065843
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=2}
+--------------------------
+Country: Nigeria
+Average Lifespan,12.921102000000001
+Median Lifespan,12.921102000000001
+90th Percentile Lifespan,21.633804
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Kuwait
+Average Lifespan,16.308602102719483
+Median Lifespan,16.308602102719483
+90th Percentile Lifespan,20.795049
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{40-60=2}
+--------------------------
+Country: Tunisia
+Average Lifespan,18.67654565652396
+Median Lifespan,19.594710000000003
+90th Percentile Lifespan,34.62364359000001
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Croatia
+Average Lifespan,16.024290717600003
+Median Lifespan,16.251678356400003
+90th Percentile Lifespan,24.223293356400006
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Uruguay
+Average Lifespan,12.061498547076807
+Median Lifespan,12.061498547076807
+90th Percentile Lifespan,12.061498547076807
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Sri Lanka
+Average Lifespan,24.13277653847399
+Median Lifespan,21.36349166542196
+90th Percentile Lifespan,46.493271
+Total Patients,6
+Total Males,2
+Total Females,4
+Age Group Distribution,{60-80=2, 40-60=1, 20-40=2, 0-20=1}
+--------------------------
+Country: United Kingdom
+Average Lifespan,30.80396061
+Median Lifespan,30.803960610000004
+90th Percentile Lifespan,32.63585742
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: United Arab Emirates
+Average Lifespan,16.692782118031065
+Median Lifespan,14.721652800000006
+90th Percentile Lifespan,26.949585686400013
+Total Patients,6
+Total Males,4
+Total Females,2
+Age Group Distribution,{60-80=2, 40-60=2, 20-40=2}
+--------------------------
+Country: Tuvalu
+Average Lifespan,14.9784714
+Median Lifespan,14.9784714
+90th Percentile Lifespan,14.9784714
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Kenya
+Average Lifespan,0.3330524349899993
+Median Lifespan,-2.1872517237000006
+90th Percentile Lifespan,6.01587
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{60-80=2, 40-60=1}
+--------------------------
+Country: Switzerland
+Average Lifespan,10.067973731740803
+Median Lifespan,10.067973731740803
+90th Percentile Lifespan,10.067973731740803
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Samoa
+Average Lifespan,6.511532717205
+Median Lifespan,5.7676110750000005
+90th Percentile Lifespan,9.595436961307502
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=2, 40-60=1}
+--------------------------
+Country: Spain
+Average Lifespan,28.588489759012507
+Median Lifespan,25.385349136050003
+90th Percentile Lifespan,43.74729000000001
+Total Patients,8
+Total Males,8
+Total Females,0
+Age Group Distribution,{60-80=1, 40-60=3, 20-40=3, 0-20=1}
+--------------------------
+Country: Lebanon
+Average Lifespan,21.529099200000005
+Median Lifespan,27.007408800000004
+90th Percentile Lifespan,32.44248
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=1, 20-40=2}
+--------------------------
+Country: Brunei
+Average Lifespan,19.478159999999995
+Median Lifespan,19.478159999999995
+90th Percentile Lifespan,19.478159999999995
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Djibouti
+Average Lifespan,8.698561796677502
+Median Lifespan,8.703618880950003
+90th Percentile Lifespan,20.712599424810005
+Total Patients,4
+Total Males,3
+Total Females,1
+Age Group Distribution,{60-80=2, 20-40=1, 0-20=1}
+--------------------------
+Country: Azerbaijan
+Average Lifespan,16.330637172599996
+Median Lifespan,9.014668199999996
+90th Percentile Lifespan,32.3426682
+Total Patients,3
+Total Males,1
+Total Females,2
+--------------------------
+Country: Liberia
+Average Lifespan,10.1690658576
+Median Lifespan,10.1690658576
+90th Percentile Lifespan,20.47248
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{60-80=1, 20-40=1}
+--------------------------
+Country: Cuba
+Average Lifespan,20.955562593300005
+Median Lifespan,14.711828058900004
+90th Percentile Lifespan,34.760834100000004
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{40-60=2, 20-40=1}
+--------------------------
+Country: Venezuela
+Average Lifespan,18.915569210726318
+Median Lifespan,21.285907200000004
+90th Percentile Lifespan,31.021574400000006
+Total Patients,6
+Total Males,3
+Total Females,3
+Age Group Distribution,{60-80=1, 40-60=3, 20-40=2}
+--------------------------
+Country: Burkina Faso
+Average Lifespan,-1.4016240000000024
+Median Lifespan,-1.4016240000000024
+90th Percentile Lifespan,-1.4016240000000024
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Saint Lucia
+Average Lifespan,16.183642293000005
+Median Lifespan,16.183642293000005
+90th Percentile Lifespan,18.720234000000005
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=2}
+--------------------------
+Country: Palau
+Average Lifespan,12.923773556759999
+Median Lifespan,12.923773556759999
+90th Percentile Lifespan,12.923773556759999
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: San Marino
+Average Lifespan,18.860615194874228
+Median Lifespan,18.291149460000007
+90th Percentile Lifespan,30.757049460000008
+Total Patients,4
+Total Males,3
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=2}
+--------------------------
+Country: Israel
+Average Lifespan,27.2027835
+Median Lifespan,20.45655
+90th Percentile Lifespan,43.925895
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{40-60=2, 20-40=1}
+--------------------------
+Country: Australia
+Average Lifespan,31.9496894343
+Median Lifespan,36.330782985
+90th Percentile Lifespan,53.076465
+Total Patients,5
+Total Males,2
+Total Females,3
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=2, 0-20=1}
+--------------------------
+Country: Tajikistan
+Average Lifespan,20.253084600000005
+Median Lifespan,18.53478
+90th Percentile Lifespan,34.501302
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Estonia
+Average Lifespan,28.535684400000005
+Median Lifespan,28.535684400000005
+90th Percentile Lifespan,28.535684400000005
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Myanmar
+Average Lifespan,8.541999012171607
+Median Lifespan,7.187208084
+90th Percentile Lifespan,19.50444
+Total Patients,6
+Total Males,3
+Total Females,3
+Age Group Distribution,{60-80=2, 40-60=4}
+--------------------------
+Country: Cameroon
+Average Lifespan,-1.0083265905465018
+Median Lifespan,-1.067801130000002
+90th Percentile Lifespan,0.972048599999998
+Total Patients,4
+Total Males,3
+Total Females,1
+Age Group Distribution,{60-80=3, 40-60=1}
+--------------------------
+Country: Cyprus
+Average Lifespan,32.12143776865408
+Median Lifespan,36.8920598085
+90th Percentile Lifespan,50.58297
+Total Patients,4
+Total Males,1
+Total Females,3
+Age Group Distribution,{60-80=1, 20-40=3}
+--------------------------
+Country: Malaysia
+Average Lifespan,9.519432149194317
+Median Lifespan,10.319316260763951
+90th Percentile Lifespan,12.692883699900001
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=2}
+--------------------------
+Country: Oman
+Average Lifespan,20.749544441076033
+Median Lifespan,23.117886
+90th Percentile Lifespan,32.4700974
+Total Patients,5
+Total Males,3
+Total Females,2
+Age Group Distribution,{40-60=2, 20-40=2, 0-20=1}
+--------------------------
+Country: Iceland
+Average Lifespan,42.43536702
+Median Lifespan,42.43536702
+90th Percentile Lifespan,42.43536702
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{0-20=1}
+--------------------------
+Country: Armenia
+Average Lifespan,21.413444417792075
+Median Lifespan,18.146785553549996
+90th Percentile Lifespan,37.838789999999996
+Total Patients,4
+Total Males,1
+Total Females,3
+Age Group Distribution,{40-60=1, 20-40=3}
+--------------------------
+Country: Gabon
+Average Lifespan,-1.061100000000002
+Median Lifespan,-1.061100000000002
+90th Percentile Lifespan,-1.061100000000002
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Austria
+Average Lifespan,18.133045644326
+Median Lifespan,16.737054867662987
+90th Percentile Lifespan,29.24874117000001
+Total Patients,6
+Total Males,2
+Total Females,4
+Age Group Distribution,{60-80=2, 40-60=2, 20-40=2}
+--------------------------
+Country: Mozambique
+Average Lifespan,7.3888297697574
+Median Lifespan,6.596780853087
+90th Percentile Lifespan,16.1157888927
+Total Patients,5
+Total Males,4
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=3, 20-40=1}
+--------------------------
+Country: El Salvador
+Average Lifespan,8.109953595000002
+Median Lifespan,8.109953595000002
+90th Percentile Lifespan,15.073110000000002
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Luxembourg
+Average Lifespan,18.329246999999995
+Median Lifespan,18.329246999999995
+90th Percentile Lifespan,18.329246999999995
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Brazil
+Average Lifespan,14.915259680109532
+Median Lifespan,15.1270416
+90th Percentile Lifespan,25.717824
+Total Patients,5
+Total Males,3
+Total Females,2
+Age Group Distribution,{40-60=3, 20-40=2}
+--------------------------
+Country: Algeria
+Average Lifespan,15.50626648852782
+Median Lifespan,4.6486143
+90th Percentile Lifespan,39.995127000000004
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=2, 20-40=1}
+--------------------------
+Country: Slovenia
+Average Lifespan,21.13613132976
+Median Lifespan,21.13613132976
+90th Percentile Lifespan,22.81017047976
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Lesotho
+Average Lifespan,4.3895841394716
+Median Lifespan,6.91416432702
+90th Percentile Lifespan,15.979840380000002
+Total Patients,5
+Total Males,4
+Total Females,1
+Age Group Distribution,{60-80=2, 40-60=1, 20-40=2}
+--------------------------
+Country: Tonga
+Average Lifespan,22.869374099999998
+Median Lifespan,19.787129999999994
+90th Percentile Lifespan,34.2525753
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{40-60=2, 20-40=1}
+--------------------------
+Country: Antigua and Barbuda
+Average Lifespan,15.584079239999996
+Median Lifespan,15.584079239999996
+90th Percentile Lifespan,19.032407999999997
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Ecuador
+Average Lifespan,10.919360106900003
+Median Lifespan,8.968887000000002
+90th Percentile Lifespan,21.381306320700006
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=2, 20-40=1}
+--------------------------
+Country: Colombia
+Average Lifespan,22.071630502234882
+Median Lifespan,26.471430504
+90th Percentile Lifespan,28.211976
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{20-40=3}
+--------------------------
+Country: Hungary
+Average Lifespan,6.909381000000004
+Median Lifespan,6.909381000000004
+90th Percentile Lifespan,6.909381000000004
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Japan
+Average Lifespan,18.466758220408323
+Median Lifespan,14.367472950324954
+90th Percentile Lifespan,29.98738511100001
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 20-40=2}
+--------------------------
+Country: Moldova
+Average Lifespan,8.488970938809759
+Median Lifespan,5.88749787452928
+90th Percentile Lifespan,19.66131
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=2}
+--------------------------
+Country: Belarus
+Average Lifespan,24.633984600000005
+Median Lifespan,23.250871800000006
+90th Percentile Lifespan,40.854780000000005
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{40-60=1, 20-40=2}
+--------------------------
+Country: Albania
+Average Lifespan,22.17255777760145
+Median Lifespan,22.17255777760145
+90th Percentile Lifespan,35.07681186
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: New Zealand
+Average Lifespan,18.757696536842854
+Median Lifespan,16.450363706342856
+90th Percentile Lifespan,37.30617
+Total Patients,4
+Total Males,2
+Total Females,2
+Age Group Distribution,{60-80=2, 40-60=2}
+--------------------------
+Country: Eswatini
+Average Lifespan,10.988217
+Median Lifespan,10.988217
+90th Percentile Lifespan,23.543217000000002
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Senegal
+Average Lifespan,11.299730243941868
+Median Lifespan,11.299730243941868
+90th Percentile Lifespan,11.716120487883732
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Italy
+Average Lifespan,31.17394674000001
+Median Lifespan,31.39451622000001
+90th Percentile Lifespan,47.668662000000005
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{60-80=1, 20-40=2}
+--------------------------
+Country: Honduras
+Average Lifespan,20.452115838146486
+Median Lifespan,29.81061
+90th Percentile Lifespan,30.879549000000004
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 20-40=2}
+--------------------------
+Country: Nauru
+Average Lifespan,14.01132523519769
+Median Lifespan,14.01132523519769
+90th Percentile Lifespan,23.777793
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Ethiopia
+Average Lifespan,15.633104652000005
+Median Lifespan,15.633104652000005
+90th Percentile Lifespan,27.14765965200001
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{40-60=1, 0-20=1}
+--------------------------
+Country: Haiti
+Average Lifespan,3.44178882
+Median Lifespan,3.44178882
+90th Percentile Lifespan,9.96773364
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Burundi
+Average Lifespan,17.934426230067004
+Median Lifespan,17.934426230067004
+90th Percentile Lifespan,17.934426230067004
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Singapore
+Average Lifespan,18.160224705
+Median Lifespan,18.160224705
+90th Percentile Lifespan,25.246104705
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Czechia
+Average Lifespan,25.76991439120861
+Median Lifespan,25.821123867000004
+90th Percentile Lifespan,34.855470000000004
+Total Patients,5
+Total Males,2
+Total Females,3
+Age Group Distribution,{40-60=1, 20-40=4}
+--------------------------
+Country: Egypt
+Average Lifespan,16.547301269999995
+Median Lifespan,16.547301269999995
+90th Percentile Lifespan,27.044901269999997
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{60-80=1, 20-40=1}
+--------------------------
+Country: Sierra Leone
+Average Lifespan,5.945840639999999
+Median Lifespan,5.945840639999999
+90th Percentile Lifespan,5.945840639999999
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Bolivia
+Average Lifespan,10.336014720000001
+Median Lifespan,10.336014720000001
+90th Percentile Lifespan,21.570624000000002
+Total Patients,2
+Total Males,0
+Age Group Distribution,{60-80=1, 20-40=1}
+--------------------------
+Country: Russia
+Average Lifespan,20.1771
+Median Lifespan,20.1771
+90th Percentile Lifespan,20.1771
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Malta
+Average Lifespan,21.67639870344411
+Median Lifespan,23.796280512900005
+90th Percentile Lifespan,29.378124090000004
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{40-60=1, 20-40=2}
+--------------------------
+Country: Saudi Arabia
+Average Lifespan,12.405108398400005
+Median Lifespan,12.405108398400005
+90th Percentile Lifespan,12.405108398400005
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Cape Verde
+Average Lifespan,28.90434232476
+Median Lifespan,35.463385980000005
+90th Percentile Lifespan,38.921958000000004
+Total Patients,5
+Total Males,3
+Total Females,2
+Age Group Distribution,{40-60=2, 20-40=3}
+--------------------------
+Country: Netherlands
+Average Lifespan,27.113359859370007
+Median Lifespan,27.113359859370007
+90th Percentile Lifespan,27.113359859370007
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Pakistan
+Average Lifespan,6.6252321899999975
+Median Lifespan,6.6252321899999975
+90th Percentile Lifespan,6.6252321899999975
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Gambia
+Average Lifespan,8.90636067
+Median Lifespan,8.90636067
+90th Percentile Lifespan,8.90636067
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Ireland
+Average Lifespan,25.147301643720006
+Median Lifespan,25.147301643720006
+90th Percentile Lifespan,34.99025040000001
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=1, 20-40=1}
+--------------------------
+Country: Qatar
+Average Lifespan,16.044201664236002
+Median Lifespan,16.044201664236002
+90th Percentile Lifespan,16.044201664236002
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: China
+Average Lifespan,18.800667000000004
+Median Lifespan,18.800667000000004
+90th Percentile Lifespan,18.800667000000004
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Slovakia
+Average Lifespan,17.342181
+Median Lifespan,17.342181
+90th Percentile Lifespan,18.557181
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{40-60=2}
+--------------------------
+Country: France
+Average Lifespan,26.377009238430006
+Median Lifespan,30.139077136860006
+90th Percentile Lifespan,33.748920000000005
+Total Patients,4
+Total Males,0
+Total Females,4
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=2}
+--------------------------
+Country: Serbia
+Average Lifespan,13.554201409498114
+Median Lifespan,13.554201409498114
+90th Percentile Lifespan,13.554201409498114
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Lithuania
+Average Lifespan,9.206745613708009
+Median Lifespan,9.206745613708009
+90th Percentile Lifespan,9.665401227416014
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Bosnia and Herzegovina
+Average Lifespan,10.686124574441997
+Median Lifespan,10.890949553162997
+90th Percentile Lifespan,13.904220023162997
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=2}
+--------------------------
+Country: Kyrgyzstan
+Average Lifespan,26.078310015030002
+Median Lifespan,26.078310015030002
+90th Percentile Lifespan,30.16577214
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{20-40=2}
+--------------------------
+Country: Bhutan
+Average Lifespan,17.999986386150006
+Median Lifespan,17.999986386150006
+90th Percentile Lifespan,17.999986386150006
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Romania
+Average Lifespan,10.066230000000006
+Median Lifespan,10.066230000000006
+90th Percentile Lifespan,10.066230000000006
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Togo
+Average Lifespan,23.991714
+Median Lifespan,23.991714
+90th Percentile Lifespan,23.991714
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Niger
+Average Lifespan,17.291719538221162
+Median Lifespan,12.41946229403667
+90th Percentile Lifespan,28.006803000000005
+Total Patients,5
+Total Males,2
+Total Females,3
+Age Group Distribution,{20-40=5}
+--------------------------
+Country: Philippines
+Average Lifespan,14.699390400000006
+Median Lifespan,21.839760000000005
+Total Patients,3
+Total Males,0
+Total Females,3
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Rwanda
+Average Lifespan,15.985634354549997
+Median Lifespan,11.386482020099999
+90th Percentile Lifespan,38.764979999999994
+Total Patients,4
+Total Males,3
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=2}
+--------------------------
+Country: Cote d'Ivoire
+Average Lifespan,12.140632576037664
+Median Lifespan,12.342557837075327
+90th Percentile Lifespan,16.13894463
+Total Patients,4
+Total Males,2
+Total Females,2
+Age Group Distribution,{40-60=1, 20-40=3}
+--------------------------
+Country: Bangladesh
+Average Lifespan,19.748691000000004
+Median Lifespan,19.748691000000004
+90th Percentile Lifespan,19.748691000000004
+Total Patients,1
+Total Males,0
+Total Females,1
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Nicaragua
+Average Lifespan,8.170492032
+Median Lifespan,8.170492032
+90th Percentile Lifespan,8.170492032
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Barbados
+Average Lifespan,17.680662475502913
+Median Lifespan,13.426433302802916
+90th Percentile Lifespan,37.41426
+Total Patients,4
+Total Males,2
+Total Females,2
+Age Group Distribution,{40-60=2, 20-40=2}
+--------------------------
+Country: Norway
+Average Lifespan,12.492959873746912
+Median Lifespan,12.492959873746912
+90th Percentile Lifespan,12.492959873746912
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{20-40=1}
+--------------------------
+Country: Botswana
+Average Lifespan,8.206732371600003
+Median Lifespan,8.046495036900001
+90th Percentile Lifespan,17.080992036900007
+Total Patients,3
+Total Males,2
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+--------------------------
+Country: Saint Vincent and the Grenadines
+Average Lifespan,5.661552509999996
+Median Lifespan,5.661552509999996
+90th Percentile Lifespan,5.661552509999996
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{60-80=1}
+--------------------------
+Country: Democratic Republic of Congo
+Average Lifespan,15.398774150850002
+Median Lifespan,15.398774150850002
+90th Percentile Lifespan,16.35633
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{20-40=2}
+--------------------------
+Country: Dominican Republic
+Average Lifespan,23.791765351901077
+Median Lifespan,30.467826
+90th Percentile Lifespan,34.52043906000001
+Total Patients,3
+Total Males,1
+Total Females,2
+Age Group Distribution,{40-60=1, 20-40=2}
+--------------------------
+Country: Uganda
+Average Lifespan,16.037604
+Median Lifespan,13.68432
+90th Percentile Lifespan,27.300888
+Total Patients,4
+Total Males,2
+Total Females,2
+Age Group Distribution,{40-60=3, 20-40=1}
+--------------------------
+Country: Mexico
+Average Lifespan,42.8868585
+Median Lifespan,42.8868585
+90th Percentile Lifespan,44.29143
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{20-40=1, 0-20=1}
+--------------------------
+Country: Zimbabwe
+Average Lifespan,6.016509900000003
+Median Lifespan,6.016509900000003
+90th Percentile Lifespan,6.016509900000003
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Suriname
+Average Lifespan,8.200631901203744
+Median Lifespan,8.200631901203744
+90th Percentile Lifespan,14.83517626273749
+Total Patients,2
+Total Males,2
+Total Females,0
+Age Group Distribution,{60-80=1, 20-40=1}
+--------------------------
+Country: Montenegro
+Average Lifespan,7.454967545970003
+Median Lifespan,7.454967545970003
+90th Percentile Lifespan,11.164693217940004
+Total Patients,2
+Total Males,0
+Total Females,2
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
+Country: Dominica
+Average Lifespan,9.467089973999999
+Median Lifespan,9.467089973999999
+90th Percentile Lifespan,9.467089973999999
+Total Patients,1
+Total Males,1
+Total Females,0
+Age Group Distribution,{40-60=1}
+--------------------------
+Country: Indonesia
+Average Lifespan,7.244359586938353
+Median Lifespan,7.244359586938353
+90th Percentile Lifespan,8.356776173876703
+Total Patients,2
+Total Males,1
+Total Females,1
+Age Group Distribution,{60-80=1, 40-60=1}
+--------------------------
