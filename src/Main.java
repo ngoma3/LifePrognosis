@@ -20,20 +20,45 @@ public class Main {
     public static final String PURPLE_BACKGROUND = "\033[45m";
     public static final String CYAN_BACKGROUND = "\033[46m";
     public static final String WHITE_BACKGROUND = "\033[47m";
+    public static final String cyanText =  "\033[38;2;173;216;230m";          // Cyan text
+    public static final String greenText = "\033[32m";           // Green text
+    public static final String yellowText = "\033[33m";          // Yellow text
+    public static final String blueBackground = "\033[44m";      // Blue background
+    public static final String boldText = "\033[1m";             // Bold text
+    public static final String reset = "\033[0m";  
 
     public static void main(String[] args) throws InterruptedException {
         userManagement.loadUsers();
         createFirstAdmin();
         displayWelcomeMessage();
+                     // Reset to default
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             while (true) {
+                
+
+        // Printing with colors and formatting
+        System.out.println(cyanText + boldText + "========================================" + reset);
+        System.out.println(cyanText + boldText + "  Welcome to the Life Prognosis System" + reset);
+        System.out.println(cyanText  + boldText + "========================================" + reset);
+        System.out.println();
+        System.out.println(yellowText + "          1. Login" + reset);
+        System.out.println(yellowText + "          2. Register" + reset);
+        System.out.println(yellowText + "          3. Exit" + reset);
+        System.out.println();
+        System.out.println(cyanText + boldText + "========================================" + reset);
+        System.out.print( "          Choose an option: " + reset);
                 // clearScreen();
-                System.out.println("Welcome to the Life Prognosis System");
-                System.out.println("1. Login");
-                System.out.println("2. Register");
-                System.out.println("3. Exit");
-                System.out.print("Choose an option: ");
+                // System.out.println("=====================================");
+                // System.out.println("  Welcome to the Life Prognosis System");
+                // System.out.println("=====================================");
+                // System.out.println();
+                // System.out.println("          1. Login");
+                // System.out.println("          2. Register");
+                // System.out.println("          3. Exit");
+                // System.out.println();
+                // System.out.println("=====================================");
+                // System.out.print("          Choose an option: ");
                 String option = reader.readLine();
 
                 switch (option) {
@@ -93,9 +118,13 @@ public class Main {
     private static void displayWelcomeMessage() throws InterruptedException {
         clearScreen();
         String message = "Welcome to the Lifespan Estimation Tool...";
+        // System.out.println();
+        // System.out.println();
+        // System.out.println();
+        // System.out.println();
         for (char c : message.toCharArray()) {
             System.out.print(c);
-            Thread.sleep(100); // Adjust speed of typing
+            Thread.sleep(70); // Adjust speed of typing
         }
         System.out.println();
         clearScreen();
@@ -139,12 +168,16 @@ public class Main {
     private static void register(BufferedReader reader) throws IOException {
         while (true) {
             clearScreen();
-            System.out.println("===== Registration Menu =====");
-            System.out.println("1. Finalize Registration");
-            System.out.println("2. Registration Request");
-            System.out.println("3. Exit");
-            System.out.println("==============================");
-            System.out.print("Choose an option: ");
+            System.out.println(cyanText + boldText + "=================================" + reset);
+System.out.println(cyanText + boldText + "       Registration          " + reset);
+System.out.println(cyanText + boldText + "=================================" + reset);
+System.out.println();
+System.out.println(yellowText + "       1. Finalize Registration  " + reset);
+System.out.println(yellowText + "       2. Registration Request   " + reset);
+System.out.println(yellowText + "       3. Exit                   " + reset);
+System.out.println();
+System.out.println(cyanText + boldText + "=================================" + reset);
+System.out.print( "       Choose an option: " + reset);
             String option = reader.readLine();
 
             switch (option) {

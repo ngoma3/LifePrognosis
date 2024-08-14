@@ -29,13 +29,18 @@ public class Admin extends User {
         Main.clearScreen();
         while (true) {
             
-            System.out.println("Admin Dashboard");
-            System.out.println("1. Add Admin");
-            System.out.println("2. Initiate Patient Registration");
-            System.out.println("3. Download User CSV");
-            System.out.println("4. Download Analytics CSV");
-            System.out.println("5. Logout");
-            System.out.print("Choose an option: ");
+            System.out.println(Main.cyanText + Main.boldText + "=================================" + Main.reset);
+System.out.println(Main.cyanText + Main.boldText + "         Admin Dashboard         " + Main.reset);
+System.out.println(Main.cyanText + Main.boldText + "=================================" + Main.reset);
+System.out.println();
+System.out.println(Main.yellowText + "       1. Add Admin               " + Main.reset);
+System.out.println(Main.yellowText + "       2. Initiate Patient Registration" + Main.reset);
+System.out.println(Main.yellowText + "       3. Download User CSV       " + Main.reset);
+System.out.println(Main.yellowText + "       4. Download Analytics CSV  " + Main.reset);
+System.out.println(Main.yellowText + "       5. Logout                  " + Main.reset);
+System.out.println();
+System.out.println(Main.cyanText + Main.boldText + "=================================" + Main.reset);
+System.out.print("       Choose an option: " + Main.reset);
             String option = reader.readLine();
 
             switch (option) {

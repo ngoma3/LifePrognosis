@@ -25,8 +25,8 @@ public class UserImporter {
                 LocalDate birthDate = LocalDate.parse(userDetails[3]);
                 LocalDate hivStartDate = LocalDate.parse(userDetails[4]);
                 LocalDate artStartDate = LocalDate.parse(userDetails[5]);
-                String countryISOCode = userDetails[6];
-                String country = userDetails[7];
+                // String countryISOCode = userDetails[6];
+                // String country = userDetails[7];
                 String country3CharISOCode = userDetails[8];
 
                 // Assign a random gender

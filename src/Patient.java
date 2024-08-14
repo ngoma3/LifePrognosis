@@ -89,16 +89,21 @@ public void viewDashboard(BufferedReader reader) throws IOException {
     Main.clearScreen();
     while (true) {
         
-        System.out.println("Patient Dashboard");
-        System.out.println("1. View Profile");
-        System.out.println("2. Edit Profile");
-        System.out.println("3. Logout");
-        System.out.print("Choose an option: ");
+        System.out.println(Main.cyanText + Main.boldText + "=================================" + Main.reset);
+System.out.println(Main.cyanText + Main.boldText + "        Patient Dashboard        " + Main.reset);
+System.out.println(Main.cyanText + Main.boldText + "=================================" + Main.reset);
+System.out.println();
+System.out.println(Main.yellowText + "        1. View Profile           " + Main.reset);
+System.out.println(Main.yellowText + "        2. Edit Profile           " + Main.reset);
+System.out.println(Main.yellowText + "        3. Logout                 " + Main.reset);
+System.out.println();
+System.out.println(Main.cyanText + Main.boldText + "=================================" + Main.reset);
+System.out.print( "        Choose an option: " + Main.reset);
         String option = reader.readLine();
 
         switch (option) {
             case "1":
-                Main.clearScreen();
+                // Main.clearScreen();
                 viewProfile();
                 break;
             case "2":
@@ -319,6 +324,7 @@ private void updateHealthData(Patient patient) throws IOException {
             System.out.println("No user is currently logged in.");
             return;
         }
+        Main.clearScreen();
 
         if (Main.getCurrentUser() instanceof Patient) {
             Patient patient = (Patient) Main.getCurrentUser();
@@ -334,7 +340,7 @@ private void updateHealthData(Patient patient) throws IOException {
             System.out.printf("| %-34s | %-34s |%n", "Chronic Disease Start Date", (patient.getChronicDiseaseStartDate() != null ? patient.getChronicDiseaseStartDate() : "N/A"));
             System.out.printf("| %-34s | %-34s |%n", "Vaccinated", (patient.isVaccinated() ? "Yes" : "No"));
             System.out.printf("| %-34s | %-34s |%n", "Vaccination Date", (patient.getVaccinationDate() != null ? patient.getVaccinationDate() : "N/A"));
-            System.out.printf("| %-34s | %-34s |%n", "Country", (patient.getCountry() != null ? patient.getCountry() : "Not provided"));
+            System.out.printf("| %-34s | %-34s |%n", "Country", (patient.getCountry() != null ? CountrySearchUtil.getCountryName(patient.getCountry()) : "Not provided"));
 
             System.out.println("+------------------------------------+------------------------------------+");
 
