@@ -118,7 +118,7 @@ def2a227-285c-4ca6-867f-9bf04fcfcab7,owensian@gmail.com,Timothy,Bennett,PATIENT,
 06bfc344-63ed-4c98-b14e-894f3b6adc44,santiagoalexis@richards-murphy.com,Ryan,Williams,PATIENT,FEMALE,1991-07-31,true,2011-08-06,true,2017-09-20,SVN
 7d559b3a-519b-489b-aa5c-ef4c169048f9,kelly44@shelton.com,Patricia,Sanders,PATIENT,MALE,1962-06-28,true,2016-07-06,true,2023-04-26,LSO
 ea15691e-ab44-482d-926c-9492f258add3,vicki62@brennan-flores.com,Zachary,Davis,PATIENT,MALE,1977-10-26,true,2013-10-27,true,2023-12-01,SWE
-6930bf9c-2d53-4817-8ca7-762307c4c7cb,kelly71@duran-wilson.com,Caitlin,Graves,PATIENT,FEMALE,1985-04-15,true,2009-09-18,true,2014-06-05,MLT
+6930bf9c-2d53-4817-8ca7-762307c4c7cb,kelly71@duran-wilson.com,Caitlin,Graves,PATIENT,FEMALE,,,,,,
 a8293a06-2a7e-47f6-90ae-9e7a96451050,mayoandrew@hotmail.com,Andrea,Gates,PATIENT,FEMALE,1959-01-31,true,2016-07-18,true,2019-05-16,BOL
 cc99ae72-9e7b-4fbc-8848-06b0f30936b2,proctordonald@walters.info,Philip,Hill,PATIENT,MALE,1988-04-02,true,2018-02-07,true,2018-12-03,BRB
 5c2e33e8-18db-4bf7-aef2-e7b183a46c5e,marccruz@gmail.com,Jared,Fletcher,PATIENT,MALE,1973-01-28,true,2018-02-19,true,2018-07-25,TJK
@@ -279,6 +279,7 @@ adb92682-7993-44ff-92b6-d90c70ffdb5b,daviskyle@yahoo.com,Shannon,Douglas,PATIENT
 36896410-8eb4-40e5-98a7-85d994ccdc69,mariabrewer@hotmail.com,Michael,Russell,PATIENT,MALE,1974-10-19,true,2015-09-11,true,2022-08-31,BIH
 c4d70b15-34c1-493a-9e22-2578f5084216,gpark@yahoo.com,Ashley,Walker,PATIENT,FEMALE,1978-08-25,true,2015-06-16,true,2019-08-28,MMR
 a6c52980-5e8f-4744-b981-3b27f8d37c14,harrisjoanne@payne-turner.com,Jesus,Sanders,PATIENT,FEMALE,1989-08-25,true,2018-07-09,true,2021-08-21,ITA
+bed1df36-0e64-42cb-a80b-870e0765293f,patrick70@hotmail.com,Randy,Ruiz,PATIENT,MALE,1985-02-15,true,2011-03-30,true,2020-01-04,ARM
 4921bc24-8e80-4f57-a62b-fd9d59249e97,ddalton@gmail.com,Monique,Jimenez,PATIENT,FEMALE,1983-08-09,true,2020-03-31,true,2021-04-09,TWN
 29dd174f-6990-4670-8f82-644ad4907984,thompsonstephanie@gmail.com,Ashley,Cummings,PATIENT,FEMALE,1992-09-12,true,2016-06-26,true,2017-04-13,GNB
 5c0f08bf-5ed2-4207-a08d-75a042d47790,parkerryan@oconnor.com,Jacqueline,Abbott,PATIENT,MALE,1961-07-02,true,2011-05-21,true,2015-03-15,WSM
@@ -352,7 +353,6 @@ d3bfe9ee-4fea-4b3f-8b61-15a1a83dce2d,osantos@hotmail.com,Tina,Morris,PATIENT,MAL
 68f923e2-72f3-4039-9352-436618ca5f6e,joshualogan@hotmail.com,Susan,Gilmore,PATIENT,MALE,1960-10-27,true,2014-01-18,true,2017-08-07,CMR
 1fcde749-2d34-4e94-a700-a31907e05f06,thomasthompson@schmidt-chang.net,Bradley,Roberts,PATIENT,FEMALE,1987-08-14,true,2011-04-27,true,2022-08-05,LIE
 50713b4a-f3b2-4c1e-a7a7-88445fcb84f6,rwong@fletcher.org,Brian,Grant,PATIENT,FEMALE,1993-08-22,true,2014-04-18,true,2023-07-20,SLB
-0d11e8f3-eec7-4436-b809-e659ddfe19c9,veronicamanning@gmail.com,Daisy,Kidd,PATIENT,FEMALE,1956-12-15,true,2023-07-30,true,2024-03-29,AUT
 0b2b3d4a-6392-4e5a-9b30-f79e212bc4e2,laurajackson@yahoo.com,Danielle,Gomez,PATIENT,FEMALE,1955-10-03,true,2012-01-30,true,2021-02-18,IRN
 fb5ef9cf-44fa-4cd9-95bd-9a0aa5261290,kevin35@yahoo.com,Anna,Perez,PATIENT,MALE,1967-09-26,true,2024-04-18,true,2024-05-18,PAN
 71a8f57c-64e4-42d1-8a39-c3f798cf6f6c,palmernicole@gmail.com,Jose,Gonzales,PATIENT,FEMALE,1973-03-29,true,2015-12-13,true,2021-09-25,SAU
@@ -429,6 +429,7 @@ f4292d50-002b-49b4-96fd-d78d21fcf51c,yray@mcmillan.com,Teresa,Thomas,PATIENT,MAL
 fce28c41-6676-4047-8c8d-984bc3eb6545,david04@wheeler.org,Jeffery,Foster,PATIENT,FEMALE,1986-03-14,true,2013-03-25,true,2015-07-26,EST
 a642e886-b1e4-4d57-b65d-51544b5a5939,ischmidt@kim.org,Jeremy,Edwards,PATIENT,FEMALE,1972-11-10,true,2023-10-16,true,2023-11-27,GIN
 a0400f58-e09d-47b9-8d34-08b2f9066886,urobertson@yahoo.com,Kristy,Brown,PATIENT,MALE,1979-04-30,true,2021-05-29,true,2023-04-08,NZL
+459de2f1-ba36-4bb4-b6f8-6e7e3a31ca13,kayla77@gmail.com,Noah,Medina,PATIENT,FEMALE,1985-06-20,true,2016-10-07,true,2021-10-09,BRA
 55c5ff63-46f9-4307-b698-2d5c015f0f22,pmercer@sanders.com,Catherine,Love,PATIENT,FEMALE,1954-10-19,true,2013-03-27,true,2021-08-29,NZL
 1288e94e-8af4-4c44-9086-5d7ca09947bc,ashleymeyer@hotmail.com,Rebecca,Proctor,PATIENT,FEMALE,1977-07-31,true,2015-04-04,true,2022-12-15,TWN
 2b63a747-c4eb-48b8-8eea-ce4dc7062f47,fhenson@gmail.com,Sydney,Dominguez,PATIENT,MALE,1956-05-11,true,2021-09-28,true,2024-04-10,SMR
@@ -474,3 +475,5 @@ d99fa5c5-6471-4e7d-add4-a542193d0b13,lambertmichael@martinez.info,Maria,Anderson
 5947dfc3-9606-406b-9a8f-7c1619b358bf,ncordova@gmail.com,Ronald,Ford,PATIENT,MALE,1984-12-19,true,2011-10-01,true,2017-09-07,SVN
 236fdb02-4903-4964-8303-d560cf2e2dd9,powerskyle@alvarado.com,Martin,Richardson,PATIENT,MALE,1958-02-20,true,2014-07-13,true,2023-07-10,MHL
 9b265422-3862-475a-9954-dcbfb785a4b5,nicholashoffman@kennedy-hall.info,Daniel,Jones,PATIENT,MALE,1986-08-23,true,2016-11-15,true,2019-05-02,SMR
+,,,,,,,,,,,
+306781fd-1cfc-3097-8859-2ac91e4db54c,ngoma8@gmail.com,ngoma,chris,PATIENT,MALE,1990-02-03,true,2000-05-14,true,2005-07-15,VNM

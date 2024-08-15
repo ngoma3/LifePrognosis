@@ -1,5 +1,5 @@
 metric,value
-Total Males,231
+Total Males,232
 Total Females,238
 Top 5 Countries with Most Patients,Iran (10 patients), Nepal (8 patients), Spain (8 patients), Mongolia (6 patients), Guatemala (6 patients)
 ========================
@@ -99,7 +99,6 @@ Median Lifespan,19.924622999999997
 90th Percentile Lifespan,19.924622999999997
 Total Patients,1
 Total Males,1
-Total Females,0
 Age Group Distribution,{40-60=1}
 --------------------------
 Country: Greece
@@ -325,6 +324,7 @@ Median Lifespan,22.398363
 Total Patients,1
 Total Males,0
 Total Females,1
+Age Group Distribution,{20-40=1}
 --------------------------
 Country: Maldives
 Average Lifespan,9.154303204310914
@@ -504,7 +504,6 @@ Median Lifespan,-2.004426000000002
 Total Patients,5
 Total Males,1
 Total Females,4
-Age Group Distribution,{60-80=2, 40-60=2, 0-20=1}
 --------------------------
 Country: Sao Tome and Principe
 Average Lifespan,10.432080000000001
@@ -561,13 +560,13 @@ Total Females,2
 Age Group Distribution,{40-60=2}
 --------------------------
 Country: Vietnam
-Average Lifespan,11.092351598257745
-Median Lifespan,11.804958384773235
-90th Percentile Lifespan,12.87143541
-Total Patients,3
-Total Males,2
+Average Lifespan,13.582934369218309
+Median Lifespan,12.338196897386617
+90th Percentile Lifespan,21.0546826821
+Total Patients,4
+Total Males,3
 Total Females,1
-Age Group Distribution,{60-80=1, 40-60=1, 20-40=1}
+Age Group Distribution,{60-80=1, 40-60=1, 20-40=2}
 --------------------------
 Country: Sweden
 Average Lifespan,20.274318909821325
@@ -792,6 +791,7 @@ Median Lifespan,9.014668199999996
 Total Patients,3
 Total Males,1
 Total Females,2
+Age Group Distribution,{40-60=2, 20-40=1}
 --------------------------
 Country: Liberia
 Average Lifespan,10.1690658576
@@ -1031,14 +1031,6 @@ Country: Lesotho
 Average Lifespan,4.3895841394716
 Median Lifespan,6.91416432702
 90th Percentile Lifespan,15.979840380000002
-Total Patients,5
-Total Males,4
-Total Females,1
-Age Group Distribution,{60-80=2, 40-60=1, 20-40=2}
---------------------------
-Country: Tonga
-Average Lifespan,22.869374099999998
-Median Lifespan,19.787129999999994
 90th Percentile Lifespan,34.2525753
 Total Patients,3
 Total Males,0
@@ -1240,6 +1232,7 @@ Median Lifespan,10.336014720000001
 90th Percentile Lifespan,21.570624000000002
 Total Patients,2
 Total Males,0
+Total Females,2
 Age Group Distribution,{60-80=1, 20-40=1}
 --------------------------
 Country: Russia
@@ -1425,6 +1418,7 @@ Age Group Distribution,{20-40=5}
 Country: Philippines
 Average Lifespan,14.699390400000006
 Median Lifespan,21.839760000000005
+90th Percentile Lifespan,22.793205600000007
 Total Patients,3
 Total Males,0
 Total Females,3
@@ -1513,7 +1507,6 @@ Age Group Distribution,{20-40=2}
 --------------------------
 Country: Dominican Republic
 Average Lifespan,23.791765351901077
-Median Lifespan,30.467826
 90th Percentile Lifespan,34.52043906000001
 Total Patients,3
 Total Males,1

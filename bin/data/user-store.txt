@@ -353,7 +353,6 @@ d3bfe9ee-4fea-4b3f-8b61-15a1a83dce2d,osantos@hotmail.com,Tina,Morris,aXxf7Ucj4Zu
 68f923e2-72f3-4039-9352-436618ca5f6e,joshualogan@hotmail.com,Susan,Gilmore,cHkGXuNL0Uy3n3pQcI+Yl5xfx8VaJE4fT2pCiBlUZ9o=,g8MLkPBRmevh8EKDECctjQ==,PATIENT,MALE
 1fcde749-2d34-4e94-a700-a31907e05f06,thomasthompson@schmidt-chang.net,Bradley,Roberts,kzb1VZ4YfFPepvqJAF7OlN0JYmF7okV1SZy0BCOJuT4=,fem3SJqqKD7Bbc8LXOMkrw==,PATIENT,FEMALE
 50713b4a-f3b2-4c1e-a7a7-88445fcb84f6,rwong@fletcher.org,Brian,Grant,l03Konv90QjkUtV0Vd3p741XA9/zySqNPNKQWmrJQ/U=,K96ZEv3KrqG6ni1Nm/xMRw==,PATIENT,FEMALE
-0d11e8f3-eec7-4436-b809-e659ddfe19c9,veronicamanning@gmail.com,Daisy,Kidd,MtW4UR8muat7mD/OgkOMtwKOYY92gT0bzd/KvtJm7UU=,9d6lIRxJAuotVJPuKGP6XQ==,PATIENT,FEMALE
 0b2b3d4a-6392-4e5a-9b30-f79e212bc4e2,laurajackson@yahoo.com,Danielle,Gomez,rBquKthPmaSe/iMX4CX07AEN0XOZdFjV/m4puqiAF+Y=,w5JldQ8j+NBi7Z0atOng8w==,PATIENT,FEMALE
 fb5ef9cf-44fa-4cd9-95bd-9a0aa5261290,kevin35@yahoo.com,Anna,Perez,phGiH6hAJKNmzylySvPdPC43BSFSAsPMmP6O5SJIWuA=,lI+dc0Noa80dFQ55Urcv4w==,PATIENT,MALE
 71a8f57c-64e4-42d1-8a39-c3f798cf6f6c,palmernicole@gmail.com,Jose,Gonzales,jlEx0IXsf7p8uioVtrkov6Vu0nmWJDHvrI01pqzljWo=,vaYuyHaMqHy0ZQ3iwtDkZA==,PATIENT,FEMALE
@@ -476,3 +475,6 @@ d99fa5c5-6471-4e7d-add4-a542193d0b13,lambertmichael@martinez.info,Maria,Anderson
 5947dfc3-9606-406b-9a8f-7c1619b358bf,ncordova@gmail.com,Ronald,Ford,pGHSpue7+iItscRsX5OkFIFG+0uvUELCwtmBg6mQJP0=,zLUYsZOjA6m2lTTlYhb2tg==,PATIENT,MALE
 236fdb02-4903-4964-8303-d560cf2e2dd9,powerskyle@alvarado.com,Martin,Richardson,geGfsxgFLsqg+272F8hsyYX77X1QR1az+Dbog/VFuCo=,2GIdHDfPiOs/x8FmYrxfuQ==,PATIENT,MALE
 9b265422-3862-475a-9954-dcbfb785a4b5,nicholashoffman@kennedy-hall.info,Daniel,Jones,qyBjSlxvKnKO3h2/YLJTZEHIghbQABXdiAFhwjHhEDE=,EOQL9GlZibudNzwSObO1nw==,PATIENT,MALE
+
+306781fd-1cfc-3097-8859-2ac91e4db54c,ngoma8@gmail.com,ngoma,chris,WrukJdsWfBj+eR2uAiPYmPuvcaNgbpgRL2sdv2nXw8o=,vVw9ewRWhDXT00qP6SyH0g==,PATIENT,MALE
+7434bb29-8278-48aa-adeb-365fe847fc84,chris@gmail.com,ngoma,chris,d3MUI3JReAvZ0P+Q0u4UAy3fueJWh68jaZYPknvDJlk=,FfPTqWmau7pGtaF7C3zsCw==,ADMIN,MALE

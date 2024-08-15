@@ -13,6 +13,7 @@ import java.util.stream.Collectors;
 
 
 public class Admin extends User {
+    private static UserManagement userManagement = UserManagement.getInstance();
 
     // Constructor with UUID
     public Admin(String firstName, String lastName, String email, String password, String salt, String uuid,GenderType gender) {
@@ -37,7 +38,8 @@ System.out.println(Main.yellowText + "       1. Add Admin               " + Main
 System.out.println(Main.yellowText + "       2. Initiate Patient Registration" + Main.reset);
 System.out.println(Main.yellowText + "       3. Download User CSV       " + Main.reset);
 System.out.println(Main.yellowText + "       4. Download Analytics CSV  " + Main.reset);
-System.out.println(Main.yellowText + "       5. Logout                  " + Main.reset);
+System.out.println(Main.yellowText + "       5. View users              " + Main.reset);
+System.out.println(Main.yellowText + "       6. Logout                  " + Main.reset);
 System.out.println();
 System.out.println(Main.cyanText + Main.boldText + "=================================" + Main.reset);
 System.out.print("       Choose an option: " + Main.reset);
@@ -61,6 +63,10 @@ System.out.print("       Choose an option: " + Main.reset);
                     downloadAnalyticsCSV();
                     break;
                 case "5":
+                    Main.clearScreen();
+                    viewUsers(reader);
+                    break;
+                case "6":
                     // Log out the admin and exit the loop
                     Main.setCurrentUser(null);
                     return;
@@ -133,6 +139,143 @@ private String readPassword(String prompt) throws IOException {
         System.out.print(prompt);
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         return reader.readLine();
+    }
+}
+private void viewUsers(BufferedReader reader) throws IOException {
+    
+    List<User> users = userManagement.getUsers(); // Load users from the data source
+    int currentPage = 0;
+    int pageSize = 10;
+    int totalPages = (int) Math.ceil((double) users.size() / pageSize);
+
+    while (true) {
+        Main.clearScreen();
+        // System.out.println(Main.cyanText + Main.boldText + "========== Users List ==========" + Main.reset);
+        System.out.println(Main.cyanText + Main.boldText + "================== Search Results ==================" + Main.reset);
+        System.out.println(Main.yellowText + String.format("%-5s %-20s %-25s %-10s %-15s %-20s %-20s %-15s %-20s %-15s", 
+            "No.", "Name", "Email", "Gender", "Birthdate", "Chronic Disease", "Chronic Disease Start", 
+            "Vaccinated", "Vaccination Date", "Country") + Main.reset);
+        System.out.println(Main.cyanText + "==============================================================================================" 
+            + "==============================================================================================" + Main.reset);
+
+        int start = currentPage * pageSize;
+        int end = Math.min(start + pageSize, users.size());
+
+        for (int i = start; i < end; i++) {
+            User user = users.get(i);
+            // System.out.println((i + 1) + ". " + user.getFirstName() + " " + user.getLastName() + " (" + user.getEmail() + ")");
+            if (user instanceof Patient) {
+                Patient patient = (Patient) user;
+                System.out.println(String.format("%-5s %-20s %-25s %-10s %-15s %-20s %-20s %-15s %-20s %-15s", 
+                (i + 1) + ".", user.getFirstName() + " " + user.getLastName(), user.getEmail(), user.getGender(),patient.getBirthDate(), patient.isHasChronicDisease(), 
+                patient.getChronicDiseaseStartDate() != null ? patient.getChronicDiseaseStartDate() : "N/A", 
+                patient.isVaccinated(), patient.getVaccinationDate() != null ? patient.getVaccinationDate() : "N/A", patient.getCountry()));
+        
+            }
+            if (user instanceof Admin) {
+                // Admin admin = (Admin) user;
+                System.out.println(String.format("%-5s %-20s %-25s %-10s %-15s %-20s %-20s %-15s %-20s %-15s", 
+                (i + 1) + ".", user.getFirstName() + " " + user.getLastName(), user.getEmail(), user.getGender(), 
+                 " ", 
+               " ", " ", " ", 
+               " "," "));
+        
+            }
+        }
+
+        System.out.println();
+        System.out.println(Main.cyanText + Main.boldText + "==============================" + Main.reset);
+        System.out.println("Page " + (currentPage + 1) + " of " + totalPages);
+        System.out.println("Options: (n)ext, (p)revious, (s)earch, (b)ack to Dashboard");
+        System.out.print("Choose an option: ");
+        String input = reader.readLine();
+
+        if (input.equalsIgnoreCase("n") && currentPage < totalPages - 1) {
+            currentPage++;
+        } else if (input.equalsIgnoreCase("p") && currentPage > 0) {
+            currentPage--;
+        } else if (input.equalsIgnoreCase("s")) {
+            System.out.print("Enter search term: ");
+            String searchTerm = reader.readLine().trim().toLowerCase();
+            List<User> searchResults = users.stream()
+                .filter(user -> user.getFirstName().toLowerCase().contains(searchTerm)
+                        || user.getLastName().toLowerCase().contains(searchTerm)
+                        || user.getEmail().toLowerCase().contains(searchTerm))
+                .collect(Collectors.toList());
+            if (searchResults.isEmpty()) {
+                System.out.println("No users found matching '" + searchTerm + "'. Press Enter to continue...");
+                reader.readLine();
+            } else {
+                displaySearchResults(searchResults, reader);
+            }
+        } else if (input.equalsIgnoreCase("b")) {
+            break;
+        } else {
+            System.out.println("Invalid option. Please try again.");
+        }
+    }
+}
+private void displaySearchResults(List<User> searchResults, BufferedReader reader) throws IOException {
+    int currentPage = 0;
+    int pageSize = 10;
+    int totalPages = (int) Math.ceil((double) searchResults.size() / pageSize);
+
+    while (true) {
+        Main.clearScreen();
+        System.out.println(Main.cyanText + Main.boldText + "================== Search Results ==================" + Main.reset);
+        System.out.println(Main.yellowText + String.format("%-5s %-20s %-25s %-10s %-15s %-20s %-20s %-15s %-20s %-15s", 
+            "No.", "Name", "Email", "Gender", "Birthdate", "Chronic Disease", "Chronic Disease Start", 
+            "Vaccinated", "Vaccination Date", "Country") + Main.reset);
+        System.out.println(Main.cyanText + "==============================================================================================" 
+            + "==============================================================================================" + Main.reset);
+
+
+        int start = currentPage * pageSize;
+        int end = Math.min(start + pageSize, searchResults.size());
+
+        for (int i = start; i < end; i++) {
+            User user = searchResults.get(i);
+            if (user instanceof Patient) {
+                Patient patient = (Patient) user;
+                System.out.println(String.format("%-5s %-20s %-25s %-10s %-15s %-20s %-20s %-15s %-20s %-15s", 
+                (i + 1) + ".", user.getFirstName() + " " + user.getLastName(), user.getEmail(), user.getGender(),patient.getBirthDate(), patient.isHasChronicDisease(), 
+                patient.getChronicDiseaseStartDate() != null ? patient.getChronicDiseaseStartDate() : "N/A", 
+                patient.isVaccinated(), patient.getVaccinationDate() != null ? patient.getVaccinationDate() : "N/A", patient.getCountry()));
+        
+            }
+            if (user instanceof Admin) {
+                // Admin admin = (Admin) user;
+                System.out.println(String.format("%-5s %-20s %-25s %-10s %-15s %-20s %-20s %-15s %-20s %-15s", 
+                (i + 1) + ".", user.getFirstName() + " " + user.getLastName(), user.getEmail(), user.getGender(), 
+                 " ", 
+               " ", " ", " ", 
+               " "," "));
+        
+            }
+            // System.out.println(String.format("%-5s %-20s %-25s %-15s %-10s %-15s %-10s %-20s %-20s %-20s %-20s %-20s", 
+            //     (i + 1) + ".", user.getFirstName() + " " + user.getLastName(), user.getEmail(), user.getUuid(), user.getGender(), 
+            //     user.getRole(), user.getBirthDate(), user.isHasChronicDisease(), 
+            //     user.getChronicDiseaseStartDate() != null ? user.getChronicDiseaseStartDate() : "N/A", 
+            //     user.isVaccinated(), user.getVaccinationDate() != null ? user.getVaccinationDate() : "N/A", user.getCountry()));
+        }
+
+        System.out.println(Main.cyanText + "======================================================" 
+            + "======================================================" 
+            + "======================================================" + Main.reset);
+        System.out.println("Page " + (currentPage + 1) + " of " + totalPages);
+        System.out.println("Options: (n)ext, (p)revious, (b)ack to User List");
+        System.out.print("Choose an option: ");
+        String input = reader.readLine();
+
+        if (input.equalsIgnoreCase("n") && currentPage < totalPages - 1) {
+            currentPage++;
+        } else if (input.equalsIgnoreCase("p") && currentPage > 0) {
+            currentPage--;
+        } else if (input.equalsIgnoreCase("b")) {
+            break;
+        } else {
+            System.out.println("Invalid option. Please try again.");
+        }
     }
 }
 
