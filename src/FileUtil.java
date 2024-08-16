@@ -48,7 +48,38 @@ public class FileUtil {
             
             process.waitFor();
         } catch (IOException | InterruptedException e) {
+            // e.printStackTrace();
+        }
+    }
+    public static boolean checkEmailExists(String filePath, String email) {
+        try {
+            // Use a bash script to check if the email exists in the file
+            Process process = new ProcessBuilder("bash/check_email_exists.sh", filePath, email).start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String result = reader.readLine();
+            process.waitFor();
+    
+            // Return true if the email exists, otherwise return false
+            return "exists".equals(result);
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
+            return false;
+        }
+    }
+    public static boolean checkEmailAndUuidExist(String filePath, String email, String uuid) {
+        try {
+            // Use a bash script to check if the email and UUID exist together in the file
+            Process process = new ProcessBuilder("bash/check_email_uuid_exists.sh", filePath, email, uuid).start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String result = reader.readLine();
+            System.out.println(result+" "+email+" "+uuid);
+            process.waitFor();
+    
+            // Return true if both the email and UUID exist together, otherwise return false
+            return "exists".equals(result);
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+            return false;
         }
     }
     public static boolean checkEmailExists(String filePath, String email) {
@@ -108,6 +139,40 @@ public class FileUtil {
     }
         
     
+    public static List<String> getWaitingList(String filePath) {
+        List<String> waitingList = new ArrayList<>();
+        try {
+            Process process = new ProcessBuilder("bash/get_waiting_list.sh", filePath).start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                waitingList.add(line);
+            }
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+        return waitingList;
+    }
+    public static void removeEmailFromWaitingList(String filePath, String email) {
+        try {
+            Process process = new ProcessBuilder("bash/remove_email.sh", filePath, email).start();
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+        
+    
+
+    public static void appendEmailToFile(String filePath, String email) {
+        try {
+            Process process = new ProcessBuilder("bash/check_and_append.sh", filePath, email).start();
+            process.waitFor();
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void appendEmailToFile(String filePath, String email) {
         try {
