@@ -73,8 +73,10 @@ public class CountrySearchUtil {
         
     
         if (countries == null) {
+
             // System.out.println("Countries list is null. Loading countries from CSV.");
             countries = loadCountriesFromCSV("data/life-expectancy.csv");
+
         }
         if (countryIdentifier == null) {
             // System.out.println("Country identifier is null. Returning default value.");

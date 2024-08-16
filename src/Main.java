@@ -4,6 +4,7 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.UUID;
+import java.io.Console;
 
 
 public class Main {
@@ -28,6 +29,7 @@ public class Main {
     public static final String reset = "\033[0m";  
 
     public static void main(String[] args) throws InterruptedException {
+
         userManagement.loadUsers();
         createFirstAdmin();
         displayWelcomeMessage();
@@ -125,6 +127,7 @@ public class Main {
         for (char c : message.toCharArray()) {
             System.out.print(c);
             Thread.sleep(70); // Adjust speed of typing
+
         }
         System.out.println();
         clearScreen();
@@ -161,8 +164,12 @@ public class Main {
             System.out.print(prompt);
             BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
             return reader.readLine();
+
         }
     }
+    
+    
+    
     
 
     private static void register(BufferedReader reader) throws IOException {
@@ -218,12 +225,14 @@ String lastName = reader.readLine();
 GenderType gender = null;
 boolean validChoice = false;
 
+
 while (!validChoice) {
     System.out.println("Select your gender:");
     System.out.println("1. Male");
     System.out.println("2. Female");
     System.out.print("Enter choice: ");
     String genderInput = reader.readLine();
+
 
     switch (genderInput) {
         case "1":
@@ -288,6 +297,7 @@ while (!validChoice) {
 }
 
 
+
     private static void registrationRequest(BufferedReader reader) throws IOException {
         clearScreen();
         System.out.println("===== Registration Request =====");
@@ -301,6 +311,7 @@ while (!validChoice) {
             System.out.println("===== Request Submitted =====");
             System.out.println("You are on the waiting list to be registered by an admin.");
             System.out.println("=============================");
+
         } else {
             clearScreen();
             System.out.println("===== Already Registered =====");
@@ -308,6 +319,7 @@ while (!validChoice) {
             System.out.println("Please wait for an admin to complete your registration.");
             System.out.println("===============================");
         }
+
 
         try {
             Thread.sleep(3000);
@@ -327,6 +339,7 @@ while (!validChoice) {
                 new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
             } else {
                 new ProcessBuilder("bash", "-c", "clear").inheritIO().start().waitFor();
+
             }
         } catch (Exception e) {
             e.printStackTrace();

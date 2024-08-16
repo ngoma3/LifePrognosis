@@ -22,5 +22,6 @@ if grep -q "$EMAIL" "$USER_STORE"; then
 else
   # Append the first admin to the user-store file  
   echo "$UUID,$EMAIL,$FIRST_NAME,$LAST_NAME,$HASHED_PASSWORD,$SALT,$ROLE,$GENDER" >> "$USER_STORE"
+
   echo "First admin created successfully."
 fi

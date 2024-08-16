@@ -24,8 +24,10 @@ public class UserManagement {
                 String[] parts = line.split(",");
     
                 // Validate the number of parts
+
                 if (parts.length != 8) {
                     // System.err.println("Invalid user data format: " + line);
+
                     continue;
                 }
     
@@ -54,6 +56,7 @@ public class UserManagement {
                     userMap.put(uuid, user);
                 }
     
+
             } catch (Exception e) {
                 System.err.println("Error processing line: " + line);
                 e.printStackTrace(); // Optional: to get detailed error information
@@ -108,6 +111,7 @@ public class UserManagement {
         users.addAll(userMap.values());
     }
     // loadUsers() ;
+
     private LocalDate parseLocalDate(String dateStr) {
         try {
             return dateStr != null && !dateStr.isEmpty() ? LocalDate.parse(dateStr) : null;
@@ -134,6 +138,7 @@ public class UserManagement {
     public void addUser(User user) {
         users.add(user);
         String userString = String.join(",",user.getUuid(), user.getEmail(), user.getFirstName(), user.getLastName(), user.getPassword(), user.getSalt(), user.getRole().toString(),user.getGender().toString());
+
         FileUtil.appendLine("data/user-store.txt", userString);
     }
     public void updateUsers(User user) {
